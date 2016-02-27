@@ -34,3 +34,12 @@ map' f xs = foldr (\x acc -> f x : acc) [] xs
 
 mapWithFoldl' :: (a -> b) -> [a] -> [b]
 mapWithFoldl' f xs = foldl (\acc x -> acc ++ [f x]) [] xs
+
+reverse' :: [a] -> [a]
+reverse' = foldl (\acc x -> x : acc) []
+
+reverse2' :: [a] -> [a]
+reverse2' = foldl (flip (:)) []
+
+sqrtSums :: Int
+sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
