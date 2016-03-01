@@ -1,3 +1,5 @@
+module Experiments where
+import Data.List
 
 addThree :: Int -> Int -> Int -> Int
 addThree x y z = x + y + z
@@ -43,3 +45,37 @@ reverse2' = foldl (flip (:)) []
 
 sqrtSums :: Int
 sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
+
+isInAny' :: Eq a => [a] -> [[a]] -> Bool
+isInAny' needle haystack = any (isInfixOf needle) haystack
+
+mem, mem' :: Eq a => a -> [a] -> Bool
+mem x lst = any (== x) lst
+mem'      = any . (==)
+
+dot :: (b -> c) -> (a -> a1 -> b) -> a -> a1 -> c
+dot = ((.).(.))
+
+-- mergesort    :: (Ord a) => [a] -> [a]
+-- mergesort xs = foldt merge [] [[x] | x <- xs]
+
+-- sequence [succ, pred, (*3)] 4
+
+-- convert lower case letters into upper case
+uppercase :: String -> String
+uppercase = map (\c -> if c >= 'a' && c <= 'z' then toEnum (fromEnum c - 32) else c)
+
+-- remove non uppercase characters
+-- removeNonUppercase :: [Char] -> [Char]
+
+
+
+
+
+
+
+
+
+
+
+
