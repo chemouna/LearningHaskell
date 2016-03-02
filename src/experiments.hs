@@ -1,5 +1,6 @@
 module Experiments where
 import Data.List
+import Data.Char
 
 addThree :: Int -> Int -> Int -> Int
 addThree x y z = x + y + z
@@ -65,14 +66,8 @@ dot = ((.).(.))
 uppercase :: String -> String
 uppercase = map (\c -> if c >= 'a' && c <= 'z' then toEnum (fromEnum c - 32) else c)
 
--- remove non uppercase characters
--- removeNonUppercase :: [Char] -> [Char]
-
-
-
-
-
-
+uppercase2 :: String -> String
+uppercase2 = map toUpper
 
 
 
