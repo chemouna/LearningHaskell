@@ -55,3 +55,9 @@ instance Listable (Tree Int) where
   toList (Node x l r) = toList l ++ [x] ++ toList r
 
 sumL x = sum (toList x)
+
+foo x y = sum (toList x) == sum (toList y) || x < y
+
+instance (Listable a, Listable b) => Listable (a,b) where
+  toList (x,y) = toList x ++ toList y
+
