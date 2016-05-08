@@ -28,3 +28,7 @@ drop :: State Stack ()
 drop = do pop
           a <- pop
           push a
+
+changeStack :: State Stack Int
+changeStack = push 3 >> push 2 >> push 3 >>= \_ -> pop
+
