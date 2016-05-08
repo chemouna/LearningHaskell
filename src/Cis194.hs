@@ -61,3 +61,11 @@ foo x y = sum (toList x) == sum (toList y) || x < y
 instance (Listable a, Listable b) => Listable (a,b) where
   toList (x,y) = toList x ++ toList y
 
+-- Lazy evaluation
+
+f1 :: Maybe a -> [Maybe a]
+f1 m = [m,m]
+
+f2 :: Maybe a -> [a]
+f2 Nothing  = []
+f2 (Just x) = [x]
