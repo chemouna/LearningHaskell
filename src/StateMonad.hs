@@ -59,3 +59,5 @@ next :: (Show s, Enum s, MonadState s m) => String -> m String
 next pre = nextSeq >>= \s -> return (pre ++ show s)
 
 
+-- Fizzbuzz
+
