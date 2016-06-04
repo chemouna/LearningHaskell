@@ -140,10 +140,12 @@ len' len'10,11
 len'' len''16,17
 len'' len''17,18
 
-./src/Lists.hs,66
-module Lists Lists1,2
-myUnzip myUnzip5,6
+./src/Lists.hs,108
+module Lists Lists2,3
 myUnzip myUnzip6,7
+myUnzip myUnzip7,8
+unzipk unzipk13,14
+unzipk unzipk14,15
 
 ./src/Main.hs,22
 module Main Main1,2
@@ -158,6 +160,22 @@ module Maybe Maybe0,1
 
 ./src/Monads.hs,40
 module MonadsExample MonadsExample0,1
+
+./src/PracticeErrorReading.hs,437
+module PracticeErrorReading PracticeErrorReading2,3
+safeHead safeHead10,11
+safeHead safeHead11,12
+sortWrapper sortWrapper16,17
+isEq isEq20,21
+isEq isEq21,22
+isEq2 isEq223,24
+isEq2 isEq224,25
+getFirstLetter getFirstLetter28,29
+getFirstLetter getFirstLetter29,30
+getFirstLetter2 getFirstLetter231,32
+getFirstLetter2 getFirstLetter232,33
+getFirstLetter3 getFirstLetter334,35
+getFirstLetter3 getFirstLetter335,36
 
 ./src/Primes.hs,64
 module Primes Primes0,1
