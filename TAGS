@@ -161,7 +161,7 @@ module Maybe Maybe0,1
 ./src/Monads.hs,40
 module MonadsExample MonadsExample0,1
 
-./src/PracticeErrorReading.hs,437
+./src/PracticeErrorReading.hs,475
 module PracticeErrorReading PracticeErrorReading2,3
 safeHead safeHead10,11
 safeHead safeHead11,12
@@ -176,6 +176,8 @@ getFirstLetter2 getFirstLetter231,32
 getFirstLetter2 getFirstLetter232,33
 getFirstLetter3 getFirstLetter334,35
 getFirstLetter3 getFirstLetter335,36
+asInt asInt39,40
+asInt asInt40,41
 
 ./src/Primes.hs,64
 module Primes Primes0,1

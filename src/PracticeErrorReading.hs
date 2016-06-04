@@ -37,7 +37,7 @@ getFirstLetter3 = (: []) . head
 
 --
 
--- asInt :: String -> Int
--- asInt = foldl (\x acc -> acc * 10 + digitToInt x) 0
+asInt :: String -> Int
+asInt = foldl (\acc x -> acc * 10 + digitToInt x) 0
 
 
