@@ -165,6 +165,18 @@ isPalindrome isPalindrome10,11
 ./src/Maybe.hs,24
 module Maybe Maybe0,1
 
+./src/MonadCont.hs,323
+module MonadCont MonadCont0,1
+calculateLength calculateLength5,6
+calculateLength calculateLength6,7
+lengthPrint lengthPrint8,9
+double double11,12
+double double12,13
+doubleLengthPring doubleLengthPring14,15
+validateName validateName18,19
+whatsYourName whatsYourName21,22
+whatsYourName whatsYourName22,23
+
 ./src/Monads.hs,40
 module MonadsExample MonadsExample0,1
 
