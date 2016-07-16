@@ -36,6 +36,19 @@ f1 f166,67
 f2 f268,69
 f2 f269,70
 
+./src/DataTypeable.hs,264
+module DataTypeable DataTypeable5,6
+data X X12,13
+data X = X X12,13
+data X = X { foo foo12,13
+data X = X { foo :: Int, bar bar12,13
+char char14,15
+char char15,16
+gshows gshows43,44
+gshows gshows44,45
+data Foo Foo69,70
+data Foo = Foo Foo69,70
+
 ./src/DeclarationVsExpressionStyle.hs,174
 module DeclarationVsExpressionStyle DeclarationVsExpressionStyle0,1
 filterdec filterdec4,5
@@ -194,6 +207,9 @@ smartFindUsers smartFindUsers26,27
 smartFindUsers smartFindUsers27,28
 transformerFindUsers transformerFindUsers34,35
 transformerFindUsers transformerFindUsers35,36
+
+./src/PolykindFolds.hs,40
+module PolykindFolds PolykindFolds3,4
 
 ./src/PracticeErrorReading.hs,475
 module PracticeErrorReading PracticeErrorReading2,3
