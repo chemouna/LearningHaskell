@@ -40,7 +40,6 @@ char x = case cast x of
 
 -- constrFields (toConstr (X 0 'a')) --> ["foo","bar"]
 
-
 gshows :: Data a => a -> ShowS
 gshows = render `extQ` (shows :: String -> ShowS) where
   render t

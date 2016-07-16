@@ -44,10 +44,10 @@ data X = X { foo foo12,13
 data X = X { foo :: Int, bar bar12,13
 char char14,15
 char char15,16
+gshows gshows42,43
 gshows gshows43,44
-gshows gshows44,45
-data Foo Foo69,70
-data Foo = Foo Foo69,70
+data Foo Foo68,69
+data Foo = Foo Foo68,69
 
 ./src/DeclarationVsExpressionStyle.hs,174
 module DeclarationVsExpressionStyle DeclarationVsExpressionStyle0,1
