@@ -63,6 +63,14 @@ myDiv1 myDiv17,8
 myDiv2 myDiv211,12
 myDiv2 myDiv212,13
 
+./src/ExistentiallyQuantifiedTypes.hs,219
+module ExistentiallyQuantifiedTypes ExistentiallyQuantifiedTypes3,4
+newtype Pair Pair5,6
+newtype Pair a b = Pair Pair5,6
+newtype Pair a b = Pair {runPair runPair5,6
+makePair makePair7,8
+makePair makePair8,9
+
 ./src/experiments.hs,1008
 module Experiments Experiments0,1
 addThree addThree4,5
