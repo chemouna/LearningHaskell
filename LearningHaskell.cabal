@@ -62,7 +62,8 @@ executable LearningHaskell
                      , random >= 1.1
                      , syb >= 0.6
                      , transformers >= 0.4.2.0
- 
+                     , lens
+
   -- Directories containing source files.
   hs-source-dirs:      src
   
