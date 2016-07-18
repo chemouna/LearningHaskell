@@ -168,32 +168,54 @@ len' len'10,11
 len'' len''16,17
 len'' len''17,18
 
-./src/Lenses.hs,703
-module Lenses Lenses3,4
-data Foo Foo11,12
-data Foo a = Foo Foo11,12
-data Foo a = Foo { _bar _bar11,12
-data Foo a = Foo { _bar :: Int, _baz _baz11,12
-data Foo a = Foo { _bar :: Int, _baz :: Int, _quux _quux11,12
-fresh fresh15,16
+./src/Lenses.hs,1290
+module Lenses Lenses4,5
+data Foo Foo12,13
+data Foo a = Foo Foo12,13
+data Foo a = Foo { _bar _bar12,13
+data Foo a = Foo { _bar :: Int, _baz _baz12,13
+data Foo a = Foo { _bar :: Int, _baz :: Int, _quux _quux12,13
 fresh fresh16,17
-data Game Game20,21
-data Game = GameGame20,21
-    { _score _score21,22
-    , _units _units22,23
-    , _boss _boss23,24
-data Unit Unit26,27
-data Unit = UnitUnit26,27
-    { _health _health27,28
-    , _position _position28,29
-data Point Point31,32
-data Point = PointPoint31,32
-    { _x _x32,33
-    , _y _y33,34
-initialState initialState65,66
+fresh fresh17,18
+data Game Game21,22
+data Game = GameGame21,22
+    { _score _score22,23
+    , _units _units23,24
+    , _boss _boss24,25
+data Unit Unit27,28
+data Unit = UnitUnit27,28
+    { _health _health28,29
+    , _position _position29,30
+data Point Point32,33
+data Point = PointPoint32,33
+    { _x _x33,34
+    , _y _y34,35
 initialState initialState66,67
-strike strike89,90
+initialState initialState67,68
 strike strike90,91
+strike strike91,92
+bossHP bossHP98,99
+bossHP bossHP99,100
+strike2 strike2101,102
+strike2 strike2102,103
+fireBreath fireBreath106,107
+fireBreath fireBreath107,108
+partyHP partyHP111,112
+partyHP partyHP112,113
+fireBreath2 fireBreath2114,115
+fireBreath2 fireBreath2115,116
+around around122,123
+around around123,124
+fireBreath3 fireBreath3129,130
+fireBreath3 fireBreath3130,131
+retreat retreat138,139
+retreat retreat139,140
+partyLoc partyLoc146,147
+partyLoc partyLoc147,148
+retreat2 retreat2149,150
+retreat2 retreat2150,151
+battle battle161,162
+battle battle162,163
 
 ./src/Lists.hs,108
 module Lists Lists2,3

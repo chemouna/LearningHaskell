@@ -1,3 +1,4 @@
+{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE TemplateHaskell #-}
 
@@ -87,9 +88,94 @@ initialState = Game
     }
 
 
-strike :: StateT Game IO () 
+strike :: StateT Game IO ()
 strike = do
   lift $ putStrLn "*shink*"
-  boss.health -=1
+  boss.health -=10
 
-  
+-- newState <- execStateT strike initialState
+-- newState^.boss.health
+
+bossHP :: Lens' Game Int
+bossHP = boss.health
+
+strike2 :: StateT Game IO ()
+strike2 = do
+  lift $ putStrLn "*shink*"
+  bossHP -= 10
+
+fireBreath :: StateT Game IO ()
+fireBreath = do
+  lift $ putStrLn "*Rawr*"
+  units.traversed.health -= 3
+
+partyHP :: Traversal' Game Int
+partyHP = units.traversed.health
+
+fireBreath2 :: StateT Game IO ()
+fireBreath2 = do
+  lift $ putStrLn "*Rawr*"
+  partyHP -= 3
+
+-- newState <- execStateT fireBreath2 initialState
+-- toListOf partyHP newState
+
+around :: Point -> Double -> Traversal' Unit Unit
+around center radius = filtered (\unit ->
+    (unit^.position.x - center^.x)^2
+  + (unit^.position.y - center^.y)^2
+  < radius^2 )
+
+-- Now I can limit the dragon's fire breath to a circular area!
+fireBreath3 :: Point -> StateT Game IO ()
+fireBreath3 target = do
+    lift $ putStrLn "*rawr*"
+    units.traversed.(around target 1.0).health -= 3
+
+--  newState <- execStateT (fireBreath3 (Point 0.5 1.5)) initialState
+--  (initialState^..partyHP, newState^..partyHP)
+
+-- Zooming
+retreat :: StateT Game IO ()
+retreat = do
+    lift $ putStrLn "Retreat!"
+    zoom (units.traversed.position) $ do
+        x += 10
+        y += 10
+
+-- refactor units.traversed.position to reuse it
+partyLoc :: Traversal' Game Point
+partyLoc = units.traversed.position
+
+retreat2 :: StateT Game IO ()
+retreat2 = do
+    lift $ putStrLn "Retreat!"
+    zoom partyLoc $ do
+        x += 10
+        y += 10
+
+-- initialState^..partyLoc
+-- newState <- execStateT retreat2 initialState
+-- newState^..partyLoc
+
+-- Combining
+battle :: StateT Game IO ()
+battle = do
+    -- Charge!
+    forM_ ["Take that!", "and that!", "and that!"] $ \taunt -> do
+        lift $ putStrLn taunt
+        strike
+
+    -- The dragon awakes!
+    fireBreath3 (Point 0.5 1.5)
+
+    replicateM_ 3 $ do
+        -- The better part of valor
+        retreat
+
+        -- Boss chases them
+        zoom (boss.position) $ do
+            x += 10
+            y += 10
+
+-- execStateT battle initialState  
