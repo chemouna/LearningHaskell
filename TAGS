@@ -1,4 +1,7 @@
 
+./ConstructingApplicativeFunctors.hs,76
+module ConstructingApplicativeFunctors ConstructingApplicativeFunctors4,5
+
 ./Setup.hs,15
 main main1,2
 
@@ -123,6 +126,9 @@ fib fib3,4
 
 ./src/Fold.hs,22
 module Fold Fold0,1
+
+./src/LearnHeist.hs,34
+module LearnHeist LearnHeist1,2
 
 ./src/learning/GhcBase.hs,85
 module Learning.GhcBase Learning.GhcBase0,1
@@ -264,6 +270,31 @@ smartFindUsers smartFindUsers26,27
 smartFindUsers smartFindUsers27,28
 transformerFindUsers transformerFindUsers34,35
 transformerFindUsers transformerFindUsers35,36
+
+./src/PhantomTypes.hs,712
+module PhantomTypes PhantomTypes2,3
+data FormData FormData6,7
+data FormData a = FormData FormData6,7
+changeType changeType8,9
+changeType changeType9,10
+data Validated Validated11,12
+data Validated = Validated Validated11,12
+data Unvalidated Unvalidated12,13
+data Unvalidated = Unvalidated Unvalidated12,13
+formData formData15,16
+formData formData16,17
+validate validate19,20
+validate validate20,21
+useData useData23,24
+useData useData24,25
+liftStringFn liftStringFn27,28
+liftStringFn liftStringFn28,29
+dataToUpper dataToUpper30,31
+dataToUpper dataToUpper31,32
+class Sanitise Sanitise34,35
+class Sanitise Sanitise34,35
+  sanitise sanitise35,36
+instance instance37,38
 
 ./src/PolykindFolds.hs,40
 module PolykindFolds PolykindFolds3,4
