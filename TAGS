@@ -225,6 +225,9 @@ retreat2 retreat2150,151
 battle battle161,162
 battle battle162,163
 
+./src/Lifting.hs,28
+module Lifting Lifting1,2
+
 ./src/Lists.hs,108
 module Lists Lists2,3
 myUnzip myUnzip6,7
@@ -378,7 +381,7 @@ nextSeq nextSeq52,53
 next next58,59
 next next59,60
 
-./src/TemplateHaskell.hs,593
+./src/TemplateHaskell/TemplateHaskell.hs,593
 module TemplateHaskell TemplateHaskell2,3
 fibs fibs7,8
 fibs fibs8,9
@@ -407,7 +410,7 @@ body body67,68
 printf printf78,79
 printf printf79,80
 
-./src/TemplateHaskellSplices.hs,85
+./src/TemplateHaskell/TemplateHaskellSplices.hs,85
 module TemplateHaskellSplices TemplateHaskellSplices2,3
 explPrintf explPrintf6,7
 

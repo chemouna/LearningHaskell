@@ -79,6 +79,3 @@ body fmt = foldr (\ e e' -> infixApp e [| (++) |] e') (last exps) (init exps)
 printf :: String -> Q Exp
 printf format = lamE (args fmt) (body fmt)
     where fmt = tokenize format
-
-
-    
