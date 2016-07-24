@@ -232,8 +232,9 @@ myUnzip myUnzip7,8
 unzipk unzipk13,14
 unzipk unzipk14,15
 
-./src/Main.hs,22
+./src/Main.hs,37
 module Main Main1,2
+main main4,5
 
 ./src/MathProblem.hs,107
 is_palindrome is_palindrome2,3
@@ -376,6 +377,39 @@ nextSeq nextSeq51,52
 nextSeq nextSeq52,53
 next next58,59
 next next59,60
+
+./src/TemplateHaskell.hs,593
+module TemplateHaskell TemplateHaskell2,3
+fibs fibs7,8
+fibs fibs8,9
+fibQ fibQ10,11
+fibQ fibQ11,12
+isPrime isPrime15,16
+isPrime isPrime16,17
+nextPrime nextPrime18,19
+nextPrime nextPrime19,20
+doPrime doPrime21,22
+doPrime doPrime22,23
+primeQ primeQ27,28
+primeQ primeQ28,29
+g g32,33
+f1 f136,37
+data Format Format47,48
+data Format = D D47,48
+data Format = D | S S47,48
+data Format = D | S | L L47,48
+tokenize tokenize51,52
+tokenize tokenize52,53
+args args59,60
+args args60,61
+body body66,67
+body body67,68
+printf printf78,79
+printf printf79,80
+
+./src/TemplateHaskellSplices.hs,85
+module TemplateHaskellSplices TemplateHaskellSplices2,3
+explPrintf explPrintf6,7
 
 ./src/Types.hs,283
 module Types Types0,1

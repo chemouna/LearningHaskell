@@ -63,7 +63,7 @@ executable LearningHaskell
                      , syb >= 0.6
                      , transformers >= 0.4.2.0
                      , lens
-
+                     , template-haskell
   -- Directories containing source files.
   hs-source-dirs:      src
   
