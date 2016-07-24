@@ -39,6 +39,8 @@ f1 f166,67
 f2 f268,69
 f2 f269,70
 
+./src/DataKinds.hs,0
+
 ./src/DataTypeable.hs,264
 module DataTypeable DataTypeable5,6
 data X X12,13
@@ -271,30 +273,51 @@ smartFindUsers smartFindUsers27,28
 transformerFindUsers transformerFindUsers34,35
 transformerFindUsers transformerFindUsers35,36
 
-./src/PhantomTypes.hs,712
-module PhantomTypes PhantomTypes2,3
-data FormData FormData6,7
-data FormData a = FormData FormData6,7
-changeType changeType8,9
-changeType changeType9,10
-data Validated Validated11,12
-data Validated = Validated Validated11,12
-data Unvalidated Unvalidated12,13
-data Unvalidated = Unvalidated Unvalidated12,13
-formData formData15,16
-formData formData16,17
-validate validate19,20
-validate validate20,21
-useData useData23,24
-useData useData24,25
-liftStringFn liftStringFn27,28
-liftStringFn liftStringFn28,29
-dataToUpper dataToUpper30,31
-dataToUpper dataToUpper31,32
-class Sanitise Sanitise34,35
-class Sanitise Sanitise34,35
-  sanitise sanitise35,36
-instance instance37,38
+./src/PhantomTypes.hs,1649
+module PhantomTypes PhantomTypes5,6
+data FormData FormData9,10
+data FormData a = FormData FormData9,10
+changeType changeType11,12
+changeType changeType12,13
+data Validated Validated14,15
+data Validated = Validated Validated14,15
+data Unvalidated Unvalidated15,16
+data Unvalidated = Unvalidated Unvalidated15,16
+formData formData18,19
+formData formData19,20
+validate validate22,23
+validate validate23,24
+useData useData26,27
+useData useData27,28
+liftStringFn liftStringFn30,31
+liftStringFn liftStringFn31,32
+dataToUpper dataToUpper33,34
+dataToUpper dataToUpper34,35
+class Sanitise Sanitise37,38
+class Sanitise Sanitise37,38
+  sanitise sanitise38,39
+instance instance40,41
+newtype Distance Distance50,51
+newtype Distance a = Distance Distance50,51
+data KilometerKilometer51,52
+data MileMile52,53
+marathonDistance marathonDistance54,55
+marathonDistance marathonDistance55,56
+distanceKmToMilles distanceKmToMilles57,58
+distanceKmToMilles distanceKmToMilles58,59
+marathonDistanceInMiles marathonDistanceInMiles60,61
+marathonDistanceInMiles marathonDistanceInMiles61,62
+data LengthUnit LengthUnit64,65
+data LengthUnit = Kilometer Kilometer64,65
+data LengthUnit = Kilometer | MileMile64,65
+newtype Distance2 Distance266,67
+newtype Distance2 (a :: LengthUnit) = Distance2 Distance266,67
+marathonDistance2 marathonDistance269,70
+marathonDistance2 marathonDistance270,71
+distanceKmToMilles2 distanceKmToMilles272,73
+distanceKmToMilles2 distanceKmToMilles273,74
+marathonDistanceInMiles2 marathonDistanceInMiles275,76
+marathonDistanceInMiles2 marathonDistanceInMiles276,77
 
 ./src/PolykindFolds.hs,40
 module PolykindFolds PolykindFolds3,4
