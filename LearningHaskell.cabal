@@ -48,7 +48,7 @@ cabal-version:       >=1.10
 
 executable LearningHaskell
   -- .hs or .lhs file containing the Main module.
-  main-is:             Main.hs
+  main-is:             DigestiveFunctors.hs
   
   -- Modules included in this executable, other than Main.
   -- other-modules:       
@@ -58,12 +58,21 @@ executable LearningHaskell
   
   -- Other library packages from which modules are imported.
   build-depends:       base >=4.8 && <4.9
+                     , bytestring >= 0.10.6.0
+                     , digestive-functors >= 0.8.0.1
+                     , lens
                      , mtl
                      , random >= 1.1
                      , syb >= 0.6
-                     , transformers >= 0.4.2.0
-                     , lens
                      , template-haskell
+                     , text >= 1.2.2.1
+                     , transformers >= 0.4.2.0
+                     , heist
+                     , digestive-functors-heist >= 0.8
+                     , digestive-functors-snap >= 0.6
+                     , snap
+                     , snap-core
+                     , snap-server
   -- Directories containing source files.
   hs-source-dirs:      src
   
