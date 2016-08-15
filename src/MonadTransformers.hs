@@ -1,3 +1,4 @@
+{-# LANGUAGE TemplateHaskell #-}
 module MonadTransformers where
 
 import Control.Monad.IO.Class
@@ -5,6 +6,8 @@ import Control.Applicative
 import Control.Monad
 import Control.Monad.Trans.Maybe
 import Data.Maybe
+import Control.Monad.Trans.Either
+import Control.Monad.Trans.Class
 
 data MaybeIO a = MaybeIO { runMaybeIO :: IO (Maybe a) }
 
@@ -101,4 +104,36 @@ display4 = fromMaybeT (putStrLn "nope") $ do
   b <- getAnswer4 a
   liftIO $ putStrLn "correct!"
 
--- TODO : find still other ways to refactor this 
+
+-- | Example of refactoring error/case handling
+
+sequen :: IO String
+sequen = do
+  a <- getLine
+  case a of
+    "hi" -> do
+      putStrLn "hello!"
+      b <- getLine
+      case b of
+        "how are you?" -> do
+          putStrLn "fine, thanks"
+          return "nice conversation"
+        _ -> return "error 2"
+    _ -> return "error 1"
+
+
+-- with EitherT
+chatbot = do
+  e <- runEitherT $ do
+    a <- lift getLine
+    case a of
+      "hi" -> lift $ putStrLn "hello!"
+      _ -> left 1
+    b <- lift getLine
+    case b of
+      "how are you ?" -> lift $ putStrLn "How are you ?"
+      _               -> left 2
+    return "nice conversation"
+  case e of
+     Left n  -> putStrLn $ "Error : " ++ show n
+     Right s -> putStrLn $ "Success : " ++ show s

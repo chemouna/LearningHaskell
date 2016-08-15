@@ -63,8 +63,10 @@ executable LearningHaskell
                      , digestive-functors >= 0.8.0.1
                      , digestive-functors-heist >= 0.8
                      , digestive-functors-snap >= 0.6
+                     , either >= 4.4.1.1
                      , heist
                      , lens
+                     , mmorph       >= 1.0.6
                      , mtl
                      , random >= 1.1
                      , snap
@@ -74,7 +76,6 @@ executable LearningHaskell
                      , template-haskell
                      , text >= 1.2.2.1
                      , transformers >= 0.4.2.0
-                     , mmorph       >= 1.0.6
 
   -- Directories containing source files.
   hs-source-dirs:      src
