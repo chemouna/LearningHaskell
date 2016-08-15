@@ -74,6 +74,8 @@ executable LearningHaskell
                      , template-haskell
                      , text >= 1.2.2.1
                      , transformers >= 0.4.2.0
+                     , mmorph       >= 1.0.6
+
   -- Directories containing source files.
   hs-source-dirs:      src
   
