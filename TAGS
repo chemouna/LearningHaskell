@@ -1,9 +1,24 @@
 
+./Catamorphisms.hs,279
+module Catamorphisms Catamorphisms1,2
+type StepAlgebra StepAlgebra3,4
+type StepAlgebra b b3,4
+data Nat Nat4,5
+data Nat = Zero Zero4,5
+data Nat = Zero | Succ Succ4,5
+foldSteps foldSteps6,7
+foldSteps foldSteps7,8
+type Algebra Algebra13,14
+type Algebra f f13,14
+
 ./ConstructingApplicativeFunctors.hs,76
 module ConstructingApplicativeFunctors ConstructingApplicativeFunctors4,5
 
 ./Setup.hs,15
-main main1,2
+main main2,3
+
+./src/AvoidPartialFns.hs,44
+module AvoidPartialFns AvoidPartialFns1,2
 
 ./src/Cis194.hs,804
 module Cis194 Cis1942,3
@@ -61,6 +76,40 @@ filterdec filterdec5,6
 filterexp filterexp11,12
 filterexp filterexp12,13
 
+./src/DigestiveFunctors.hs,817
+module Main Main2,3
+data App App24,25
+data App = AppApp24,25
+    { _heist _heist25,26
+instance instance30,31
+type AppHandler AppHandler33,34
+data Date Date39,40
+data Date = DateDate39,40
+    { dateDay dateDay40,41
+    , dateMonth dateMonth41,42
+    , dateYear dateYear42,43
+dateForm dateForm45,46
+dateForm dateForm46,47
+data Sex Sex55,56
+data Sex = Female Female55,56
+data Sex = Female | MaleMale55,56
+data User User58,59
+data User = UserUser58,59
+    { userName userName59,60
+    , userPassword userPassword60,61
+    , userSex userSex61,62
+    , userBirthdate userBirthdate62,63
+userForm userForm65,66
+userForm userForm66,67
+form form76,77
+form form77,78
+routes routes90,91
+routes routes91,92
+app app93,94
+app app94,95
+main main99,100
+main main100,101
+
 ./src/ErrorHandling.hs,120
 module ErrorHandling ErrorHandling1,2
 myDiv1 myDiv16,7
@@ -117,6 +166,24 @@ uppercase uppercase66,67
 uppercase2 uppercase268,69
 uppercase2 uppercase269,70
 
+./src/ExploreFunctionsTuples.hs,425
+module ExploreFunctionsTuples ExploreFunctionsTuples1,2
+boring boring8,9
+boring boring9,10
+lessBoring lessBoring11,12
+lessBoring lessBoring12,13
+tupleMemberInsert1 tupleMemberInsert115,16
+tupleMemberInsert1 tupleMemberInsert116,17
+tupleMemberInsert2 tupleMemberInsert219,20
+tupleMemberInsert2 tupleMemberInsert220,21
+tupleMemberInsert3 tupleMemberInsert323,24
+tupleMemberInsert3 tupleMemberInsert324,25
+
+./src/Exploring.hs,86
+module Exploring Exploring0,1
+prob1_sol1 prob1_sol16,7
+prob1_sol1 prob1_sol17,8
+
 ./src/fac.hs,35
 module Test Test0,1
 fac fac2,3
@@ -125,6 +192,12 @@ fac fac2,3
 module Fibonacci Fibonacci0,1
 fib fib2,3
 fib fib3,4
+
+./src/FingerTree.hs,108
+data FingerTree FingerTree3,4
+data FingerTree = EmptyEmpty3,4
+  | Single Single4,5
+  | Deep Deep5,6
 
 ./src/Fold.hs,22
 module Fold Fold0,1
@@ -228,16 +301,23 @@ battle battle162,163
 ./src/Lifting.hs,28
 module Lifting Lifting1,2
 
-./src/Lists.hs,108
+./src/Lists.hs,198
 module Lists Lists2,3
-myUnzip myUnzip6,7
-myUnzip myUnzip7,8
-unzipk unzipk13,14
-unzipk unzipk14,15
+myUnzip myUnzip11,12
+myUnzip myUnzip12,13
+unzipk unzipk18,19
+unzipk unzipk19,20
+dic dic25,26
+myGroup myGroup28,29
+myGroup myGroup29,30
+myGroup2 myGroup231,32
 
 ./src/Main.hs,37
 module Main Main1,2
 main main4,5
+
+./src/Maps.hs,22
+module Maps Maps1,2
 
 ./src/MathProblem.hs,107
 is_palindrome is_palindrome2,3
@@ -259,23 +339,53 @@ validateName validateName18,19
 whatsYourName whatsYourName21,22
 whatsYourName whatsYourName22,23
 
+./src/MonadMorphisms.hs,76
+module MonadMorphisms MonadMorphisms2,3
+type m m4,5
+type m :-> :->4,5
+
 ./src/Monads.hs,40
 module MonadsExample MonadsExample0,1
 
-./src/MonadTransformers.hs,462
-module MonadTransformers MonadTransformers0,1
-data MaybeIO MaybeIO5,6
-data MaybeIO a = MaybeIO MaybeIO5,6
-data MaybeIO a = MaybeIO { runMaybeIO runMaybeIO5,6
-instance instance7,8
-data User User20,21
-data User = User User20,21
-findById findById22,23
-findById findById23,24
-smartFindUsers smartFindUsers26,27
-smartFindUsers smartFindUsers27,28
-transformerFindUsers transformerFindUsers34,35
-transformerFindUsers transformerFindUsers35,36
+./src/MonadTransformers.hs,969
+module MonadTransformers MonadTransformers1,2
+data MaybeIO MaybeIO11,12
+data MaybeIO a = MaybeIO MaybeIO11,12
+data MaybeIO a = MaybeIO { runMaybeIO runMaybeIO11,12
+instance instance13,14
+data User User26,27
+data User = User User26,27
+findById findById28,29
+findById findById29,30
+smartFindUsers smartFindUsers32,33
+smartFindUsers smartFindUsers33,34
+transformerFindUsers transformerFindUsers40,41
+transformerFindUsers transformerFindUsers41,42
+getAnswer getAnswer48,49
+getAnswer getAnswer49,50
+display display55,56
+display display56,57
+getAnswer2 getAnswer267,68
+getAnswer2 getAnswer268,69
+display2 display274,75
+display2 display275,76
+display3 display383,84
+display3 display384,85
+getAnswer4 getAnswer493,94
+getAnswer4 getAnswer494,95
+fromMaybeT fromMaybeT97,98
+fromMaybeT fromMaybeT98,99
+display4 display4100,101
+display4 display4101,102
+sequen sequen109,110
+sequen sequen110,111
+chatbot chatbot125,126
+
+./src/NaturalTransformation.hs,56
+module NaturalTransformation NaturalTransformation2,3
+
+./src/Operations.hs,34
+module Operations Operations1,2
 
 ./src/PhantomTypes.hs,1649
 module PhantomTypes PhantomTypes5,6
@@ -426,3 +536,28 @@ class Shape Shape6,7
   rotate rotate7,8
   simple simple8,9
 instance instance11,12
+
+./src/Writer.hs,258
+module Writer Writer3,4
+fact1 fact17,8
+fact1 fact18,9
+fact2 fact219,20
+fact2 fact220,21
+fact4 fact430,31
+fact4 fact431,32
+fact5 fact540,41
+fact5 fact541,42
+tellFst tellFst54,55
+tellSnd tellSnd57,58
+fact6 fact659,60
+fact6 fact660,61
+
+./TypeLevelPgm.hs,208
+module TypeLevelPgm TypeLevelPgm4,5
+data ZZ8,9
+data S S9,10
+class Plus Plus14,15
+type family family19,20
+type instance instance20,21
+type instance Plus2 Plus220,21
+type instance instance21,22

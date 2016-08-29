@@ -1,0 +1,2 @@
+
+module AvoidPartialFns where

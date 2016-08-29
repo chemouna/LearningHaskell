@@ -1,0 +1,333 @@
+λ> 
+λ> 
+Hello, Haskell!
+If I break, you can:
+  1. Restart:           M-x haskell-process-restart
+  2. Configure logging: C-h v haskell-process-log (useful for debugging)
+  3. General config:    M-x customize-mode
+  4. Hide these tips:   C-h v haskell-process-show-debug-tips
+λ> :t runMaybeT
+
+<interactive>:1:1: Not in scope: ‘runMaybeT’
+λ> import Control.Monad.Trans.Maybe
+λ> :t runMaybeT
+runMaybeT :: MaybeT m a -> m (Maybe a)
+λ> :doc runMaybeT
+λ> :doc runMaybeT
+λ> :m + Control.Monad.Trans.Maybe
+λ> :doc runMaybeT
+λ> :doc map
+Package: ghc_0AG9TOjDEtx4Ji3wSwHOBe
+Module: Stream
+map
+Apply a function to each element of a Stream, lazily
+Package: bytes_6VWy06pWzJq9evDvK2d4w6
+Module: Data.ByteString
+map :: (Word8 -> Word8) -> ByteString -> ByteString
+*O(n)* map `f xs` is the ByteString obtained by applying `f` to each
+ element of `xs`.
+Package: base
+Module: GHC.Base
+map :: forall a b. (a -> b) -> [a] -> [b]
+map `f xs` is the list obtained by applying `f` to each element
+ of `xs`, i.e.,
+    map f [x1, x2, ..., xn] == [f x1, f x2, ..., f xn]
+    map f [x1, x2, ...] == [f x1, f x2, ...]
+λ> 
+λ> 
+λ> :t (::)
+
+<interactive>:1:2: parse error on input ‘::’
+λ> 
+λ> return $ 42
+42
+λ> :t (return $ 42)
+(return $ 42) :: (Monad m, Num r) => m r
+λ> :t (return $ 42 :: MaybeT (Either String) Int) 
+(return $ 42 :: MaybeT (Either String) Int)
+  :: MaybeT (Either String) Int
+λ> 
+λ> 
+λ> :t (return $ 42 :: MaybeT (Either String) Int) 
+(return $ 42 :: MaybeT (Either String) Int)
+  :: MaybeT (Either String) Int
+λ> return $ 42 :: MaybeT (Either String) Int
+MaybeT (Right (Just 42))
+λ> let x = return $ 42 :: MaybeT (Either String) Int
+λ> :t x
+x :: MaybeT (Either String) Int
+λ> runMaybeT
+runMaybeT :: MaybeT m a -> m (Maybe a)
+λ> 
+λ> 
+λ>  Left (Just undefined)
+Left (Just *** Exception: Prelude.undefined
+λ> 
+λ>  Left (Just )
+Left (Just ) :: Either (a -> Maybe a) b
+λ> 
+λ> 
+λ> :t fail
+fail :: Monad m => String -> m a
+λ> failt "Failed"
+
+<interactive>:33:1:
+    Not in scope: ‘failt’
+    Perhaps you meant ‘fail’ (imported from Prelude)
+λ> 
+λ> fail "Failed"
+*** Exception: user error (Failed)
+λ> 
+λ> fail "Failed" :: MaybeT (Either String) Int
+MaybeT (Right Nothing)
+λ> :t lift
+
+<interactive>:1:1: Not in scope: ‘lift’
+λ> lift (Left "Failed")
+
+<interactive>:37:1: Not in scope: ‘lift’
+λ> :m + Control.Monad.Morph
+
+<no location info>:
+    Could not find module ‘Control.Monad.Morph’
+    It is a member of the hidden package ‘mmorph-1.0.6@mmorp_42KUkOfzC6q3qCtAMiSHam’.
+Cabal file changed: d368bbd11141c860ad8df062b8132517
+Restarting process ...
+Your wish is my IO ().
+If I break, you can:
+  1. Restart:           M-x haskell-process-restart
+  2. Configure logging: C-h v haskell-process-log (useful for debugging)
+  3. General config:    M-x customize-mode
+  4. Hide these tips:   C-h v haskell-process-show-debug-tips
+λ> 
+λ> :t lift
+
+<interactive>:1:1:
+    Not in scope: ‘lift’
+    Perhaps you meant ‘liftA’ (imported from Control.Applicative)
+λ> :m + Control.Monad.Morph
+λ> :t lift
+lift :: (Monad m, MonadTrans t) => m a -> t m a
+λ> :doc lift
+Package: trans_GZTjP9K5WFq01xC9BAGQpF
+Module: Control.Monad.Trans.Class
+lift :: forall (t :: (* -> *) -> * -> *).
+MonadTrans t =>
+forall (m :: * -> *) a. Monad m => m a -> t m a
+Lift a computation from the argument monad to the constructed monad.
+Package: base_HQfYBxpPvuw8OunzQu6JGM
+Module: Text.ParserCombinators.ReadPrec
+lift :: forall a. ReadP a -> ReadPrec a
+Lift a precedence-insensitive ReadP to a ReadPrec.
+λ> 
+λ> lift (Left "Failed")
+lift (Left "Failed") :: MonadTrans t => t (Either [Char]) a
+λ> runMaybeT(lift (Left "Failed"))
+Left "Failed"
+λ> runMaybeT (lift (Left "Failed"))
+Left "Failed"
+λ> 
+λ> 
+λ> runMaybeT (lift (Left "Failed"))
+Left "Failed"
+λ> 
+λ> 
+λ> :t (:->)
+
+<interactive>:1:1: Not in scope: data constructor ‘:->’
+λ> 
+λ> :t (:->)
+
+<interactive>:1:1: Not in scope: data constructor ‘:->’
+λ> 
+λ> 
+λ> :doc ReaderT
+Package: trans_GZTjP9K5WFq01xC9BAGQpF
+Module: Control.Monad.Trans.Reader
+ReaderT
+The reader monad transformer,
+ which adds a read-only environment to the given monad.
+The return function ignores the environment, while `>>=` passes
+ the inherited environment to both subcomputations.
+λ> type T = ReaderT Int (WriterT String IO) Bool
+
+<interactive>:27:10:
+    Not in scope: type constructor or class ‘ReaderT’
+
+<interactive>:27:23:
+    Not in scope: type constructor or class ‘WriterT’
+λ> type T = ReaderT Int (WriterT String IO) Bool
+
+<interactive>:28:10:
+    Not in scope: type constructor or class ‘ReaderT’
+
+<interactive>:28:23:
+    Not in scope: type constructor or class ‘WriterT’
+λ> import Control.Monad.Reader
+λ> import Control.Monad.Writer 
+λ> type T = ReaderT Int (WriterT String IO) Bool
+λ> T
+
+<interactive>:32:1: Not in scope: data constructor ‘T’
+λ> import Control.Monad.Writer 
+λ> type T = ReaderT Int (WriterT String IO) Bool
+λ> :t \x -> (lift x :: T)
+\x -> (lift x :: T) :: WriterT String IO Bool -> T
+λ> :t \x -> (lift .lift x :: T)
+
+<interactive>:1:8:
+    Couldn't match type ‘a0 -> t0 m a’
+                   with ‘ReaderT Int (WriterT String IO) Bool’
+    Expected type: T
+      Actual type: a0 -> t0 m a
+    Relevant bindings include
+      x :: m1 (m a) (bound at <interactive>:1:2)
+    In the expression: (lift . lift x :: T)
+    In the expression: \ x -> (lift . lift x :: T)
+
+<interactive>:1:14:
+    Couldn't match kind ‘* -> *’ with ‘*’
+    When matching types
+      t1 :: (* -> *) -> * -> *
+      (->) :: * -> * -> *
+    Expected type: a0 -> m a
+      Actual type: t1 m1 (m a)
+    In the second argument of ‘(.)’, namely ‘lift x’
+    In the expression: (lift . lift x :: T)
+λ> :t \x -> (lift . lift x :: T)
+
+<interactive>:1:8:
+    Couldn't match type ‘a0 -> t0 m a’
+                   with ‘ReaderT Int (WriterT String IO) Bool’
+    Expected type: T
+      Actual type: a0 -> t0 m a
+    Relevant bindings include
+      x :: m1 (m a) (bound at <interactive>:1:2)
+    In the expression: (lift . lift x :: T)
+    In the expression: \ x -> (lift . lift x :: T)
+
+<interactive>:1:15:
+    Couldn't match kind ‘* -> *’ with ‘*’
+    When matching types
+      t1 :: (* -> *) -> * -> *
+      (->) :: * -> * -> *
+    Expected type: a0 -> m a
+      Actual type: t1 m1 (m a)
+    In the second argument of ‘(.)’, namely ‘lift x’
+    In the expression: (lift . lift x :: T)
+λ> :t \x -> (lift . lift x :: T)
+
+<interactive>:1:8:
+    Couldn't match type ‘a0 -> t0 m a’
+                   with ‘ReaderT Int (WriterT String IO) Bool’
+    Expected type: T
+      Actual type: a0 -> t0 m a
+    Relevant bindings include
+      x :: m1 (m a) (bound at <interactive>:1:2)
+    In the expression: (lift . lift x :: T)
+    In the expression: \ x -> (lift . lift x :: T)
+
+<interactive>:1:15:
+    Couldn't match kind ‘* -> *’ with ‘*’
+    When matching types
+      t1 :: (* -> *) -> * -> *
+      (->) :: * -> * -> *
+    Expected type: a0 -> m a
+      Actual type: t1 m1 (m a)
+    In the second argument of ‘(.)’, namely ‘lift x’
+    In the expression: (lift . lift x :: T)
+λ> 
+λ> 
+λ> :t \x -> (lift x :: T)
+\x -> (lift x :: T) :: WriterT String IO Bool -> T
+λ> :t \x -> (lift (lift x :: T))
+\x -> (lift (lift x :: T))
+  :: MonadTrans t =>
+     WriterT String IO Bool -> t (ReaderT Int (WriterT String IO)) Bool
+λ> :t \x -> (liftIO x :: T)
+\x -> (liftIO x :: T) :: IO Bool -> T
+λ> :doc Config
+Couldn't find any packages with that module.
+src/MonadTransformers.hs:47:34: Couldn't match type ‘FileName’ with ‘[Char]’ …
+    Expected type: FilePath
+      Actual type: FileName
+    In the first argument of ‘readFile’, namely ‘myLogFile’
+    In the expression: readFile myLogFile
+Compilation failed.
+λ> 
+λ> 
+λ> 
+λ> 
+λ> :doc Either
+Package: base_HQfYBxpPvuw8OunzQu6JGM
+Module: Data.Either
+Either
+The Either type represents values with two possibilities: a value of
+type `Either a b` is either `Left a` or `Right b`.
+The Either type is sometimes used to represent a value which is
+either correct or an error; by convention, the Left constructor is
+used to hold an error value and the Right constructor is used to
+hold a correct value (mnemonic: "right" also means "correct").
+The type `Either String Int` is the type of values which can be either
+a String or an Int. The Left constructor can be used only on
+Strings, and the Right constructor can be used only on Ints:
+    > let s = Left "foo" :: Either String Int
+    > s    Left "foo"
+
+    > let n = Right 3 :: Either String Int
+    > n    Right 3
+
+    > :type s    s :: Either String Int
+
+    > :type n    n :: Either String Int
+
+The fmap from our Functor instance will ignore Left values, but
+will apply the supplied function to values contained in a Right:
+    > let s = Left "foo" :: Either String Int
+    > let n = Right 3 :: Either String Int
+    > fmap (*2) s    Left "foo"
+
+    > fmap (*2) n    Right 6
+
+The Monad instance for Either allows us to chain together multiple
+actions which may fail, and fail overall if any of the individual
+steps failed. First we'll write a function that can either parse an
+Int from a Char, or fail.
+    > import Data.Char ( digitToInt, isDigit )
+    > :{        let parseEither :: Char -> Either String Int
+            parseEither c
+              | isDigit c = Right (digitToInt c)
+              | otherwise = Left "parse error"
+
+    > :}
+The following should work, since both `'1'` and `'2'` can be
+parsed as Ints.
+    > :{        let parseMultiple :: Either String Int
+            parseMultiple = do
+              x <- parseEither '1'
+              y <- parseEither '2'
+              return (x + y)
+
+    > :}
+    > parseMultiple    Right 3
+
+But the following should fail overall, since the first operation where
+we attempt to parse `'m'` as an Int will fail:
+    > :{        let parseMultiple :: Either String Int
+            parseMultiple = do
+              x <- parseEither 'm'
+              y <- parseEither '2'
+              return (x + y)
+
+    > :}
+    > parseMultiple    Left "parse error"
+λ> 
+λ> 
+λ> :doc EitherT
+Couldn't find any packages with that module.
+λ> :t makeSnaplet
+
+<interactive>:1:1: Not in scope: ‘makeSnaplet’
+λ> :doc makeSnaplet
+Couldn't find any packages with that module.
+λ> 
