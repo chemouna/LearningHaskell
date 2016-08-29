@@ -57,7 +57,8 @@ executable LearningHaskell
   -- other-extensions:    
   
   -- Other library packages from which modules are imported.
-  build-depends:       base >=4.8 && <4.9
+  build-depends:       array >= 0.5.1.0
+                     , base >=4.8 && <4.9
                      , bytestring >= 0.10.6.0
                      , containers >= 0.5.6.2
                      , digestive-functors >= 0.8.0.1
