@@ -1,4 +1,5 @@
 {-# LANGUAGE TemplateHaskell #-}
+
 module ExploreArrays where
 
 import Data.Array
@@ -55,3 +56,7 @@ arrcount xs = M.fromListWith (+) $ zip xs (repeat 1)
 arrcount2 :: [Int] -> Array Int Int
 arrcount2 xs = accumArray (+) 0 bnds [(i,1) | i <- xs, inRange bnds i]
                  where bnds = (1, (maximum xs))
+
+-- from FP pearls
+-- checklist :: [Int] -> Array Int Bool
+-- checklist xs = accumArray or
