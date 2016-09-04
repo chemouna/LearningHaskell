@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 module ContravariantFunctor where
 
 import Data.Char (toUpper)
@@ -75,3 +76,12 @@ testLogger = runBehavior loggerMailbox messages
                    , Left "Oops, there was an error"
                    , Right 1
                    , Right 2 ]
+
+
+-- Examples of instances of Contravariant functors
+-- (-> a) is an exple:
+newtype Flip f a b = Flip { unFlip :: f b a }
+
+instance Contravariant (Flip (->) a) where
+  contramap f (Flip x) = Flip (x . f)
+
