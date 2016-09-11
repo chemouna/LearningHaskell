@@ -60,3 +60,7 @@ arrcount2 xs = accumArray (+) 0 bnds [(i,1) | i <- xs, inRange bnds i]
 -- from FP pearls
 -- checklist :: [Int] -> Array Int Bool
 -- checklist xs = accumArray or
+
+--
+
+
