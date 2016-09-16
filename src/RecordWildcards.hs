@@ -5,7 +5,6 @@ module RecordWildcards where
 
 import Data.Aeson
 
-
 data Worker = Worker
   {
     workerName :: String,
@@ -13,7 +12,7 @@ data Worker = Worker
     workerFirstYear :: String
   }
 
--- Without wildcards 
+-- Without wildcards
 -- instance ToJSON Worker where
 --   toJSON w = object [ "name" .= workerName w
 --                     , "position" .= workerPosition w
@@ -41,3 +40,11 @@ update Worker{..} = do
 
 assignPosition = undefined
 assignFirstYear = undefined
+
+-- expl 2 :
+data C = C { a :: Int, b :: Int, c :: Int, d :: Int}
+-- f(C { a = 1, b = b, c = c}) = b + c + d -- without wildcards
+f (C {a = 1, ..}) = b + c + d
+
+
+
