@@ -1,0 +1,43 @@
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+module RecordWildcards where
+
+import Data.Aeson
+
+
+data Worker = Worker
+  {
+    workerName :: String,
+    workerPosition :: String,
+    workerFirstYear :: String
+  }
+
+-- Without wildcards 
+-- instance ToJSON Worker where
+--   toJSON w = object [ "name" .= workerName w
+--                     , "position" .= workerPosition w
+--                     , "first-year" .= workerFirstYear w
+--                     ]
+
+instance ToJSON Worker where
+  toJSON Worker{..} = object [ "name" .= workerName
+                             , "position" .= workerPosition
+                             , "first-year" .= workerFirstYear
+                             ]
+
+instance FromJSON Worker where
+  parseJSON = withObject "Worker" $ \o -> do
+    workerName <- o .: "name"
+    workerPosition <- o .: "position"
+    workerFirstYear <- o .: "first-year"
+    return Worker{..}
+
+update :: Worker -> IO Worker
+update Worker{..} = do
+  workerPosition <- assignPosition
+  workerFirstYear <- assignFirstYear
+  return Worker{..}
+
+assignPosition = undefined
+assignFirstYear = undefined
