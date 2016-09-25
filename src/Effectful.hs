@@ -136,7 +136,7 @@ instance Applicative CReader where
 -- Let's use the Reader (which is exactly like what we defined with CReader)
 validateMsgRdr :: String -> Reader AppConfig (Either String ())
 validateMsgRdr m = do
-  max <- reader maxMessageLength -- this equivalent to : max <- maxMessageLength <$> ask 
+  max <- reader maxMessageLength -- this equivalent to : max <- maxMessageLength <$> ask
   if(length m > max)
     then return $ Left ("Message too long: " ++ m)
     else return $ Right ()
@@ -154,5 +154,29 @@ initLogFileRdr p = do
 -- Reader is a monad , IO is a monad => only to kind of have both run at the same time if with a
 -- monad transformer -> ReaderT
 
+initLogFileRT :: String -> ReaderT AppConfig IO Handle
+initLogFileRT p = do
+  f <- reader logfile
+  v <- reader version
+  h <- liftIO $ openFile f WriteMode
+  liftIO $ hPutStrLn h (p ++ "version: "++ v)
+  return h
 
+validateMsgRT :: String -> ReaderT AppConfig IO (Either String ())
+validateMsgRT m = vfun <$> reader maxMessageLength
+  where vfun max | length m > max = Left ("Message too long: "++ m)
+                 | otherwise = Right ()
 
+-- validateMsgRT is bound to IO even though there's no IO going on in it -> let's make it more polymorphic
+validateMessageRTM :: (Functor m, Monad m) => String -> ReaderT AppConfig m (Either String ())
+validateMessageRTM m = vfun <$> reader maxMessageLength
+  where vfun max | length m > max = Left ("Message too long: " ++ m)
+                 | otherwise = Right ()
+
+-- but we're still tied to ReaderT => let's use MonadReader to accept any kind of reader RWST or anything else
+validateMessageMR :: (Functor m , MonadReader AppConfig m) => String -> m (Either String ())
+validateMessageMR m = vfun <$> reader maxMessageLength
+  where vfun max | length m > max = Left ("Message too long" ++ m)
+                 | otherwise = Right ()
+
+                 
