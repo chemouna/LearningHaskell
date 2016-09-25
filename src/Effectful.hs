@@ -129,9 +129,14 @@ validateAndInitLogM p = do
       return (fmap Just h)
 
 -- this is mostly to get rid of the error raised by ghc: no instance for Applicative
+-- instance Applicative CReader where
+--   pure  = return
+--   (<*>) = ap
+
+-- let's create a correct implementation of Applicative 
 instance Applicative CReader where
-  pure  = return
-  (<*>) = ap
+  pure = return
+  (CReader f) <*> (CReader a) = CReader $ \c -> (f c) (a c)
 
 -- Let's use the Reader (which is exactly like what we defined with CReader)
 validateMsgRdr :: String -> Reader AppConfig (Either String ())
