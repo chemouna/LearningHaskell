@@ -179,4 +179,12 @@ validateMessageMR m = vfun <$> reader maxMessageLength
   where vfun max | length m > max = Left ("Message too long" ++ m)
                  | otherwise = Right ()
 
-                 
+-- let's use the same polymorphic concept for IO too
+initLogFileMR :: (MonadReader AppConfig m, MonadIO m) => String -> m Handle
+initLogFileMR p = do
+  f <- reader logfile
+  v <- reader version
+  h <- liftIO $ openFile f WriteMode
+  liftIO $ hPutStrLn h (p ++ "version: "++ v)
+  return h
+
