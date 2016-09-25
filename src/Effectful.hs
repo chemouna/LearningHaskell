@@ -188,3 +188,28 @@ initLogFileMR p = do
   liftIO $ hPutStrLn h (p ++ "version: "++ v)
   return h
 
+-- Putting it all together
+readConfig :: FilePath -> IO AppConfig
+readConfig f = (fromTup . read) <$> (readFile f)
+  where fromTup (a, b, c) = AppConfig a b c
+
+main :: IO ()
+main = do
+  configPath <- head <$> getArgs
+  configFile <- readConfig configPath
+  runReaderT go configFile
+
+go :: (Functor m, MonadReader AppConfig m, MonadIO m) => m ()
+go = do
+  h <- initLogFileMR "Starting"
+  forever $ do
+    liftIO $ putStr $ "Your Message: "
+    m <- liftIO $ getLine
+    v <- validateMessageMR m
+    case v of
+      (Left err) -> logMsg h $ "Invalid input: " ++ err
+      (Right ()) -> logMsg h $ "Valid input"
+
+
+logMsg :: (MonadIO m) => Handle -> String -> m ()
+logMsg h = liftIO . hPutStrLn h
