@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleContexts #-}
+
 module Effectfull where
 
 import Data.Int
@@ -101,4 +103,56 @@ validateAndInitLogF p = fmap doInit (validateMessageF p)
                             >> return Nothing
         -- doInit (Right ()) = Just <$> initLogFileF -- Ouch! we need to pass config here we don't have it
 
--- Ok let's try with a monad instead 
+-- Ok let's try with a monad instead
+
+-- first the non point free version
+-- instance Monad CReader where
+--   return a = CReader $ \c -> a
+--   a >>= f = CReader $ \c -> let a' = runCR a c
+--                                 f' = f a'
+--                                in runCR f' c
+
+-- then the point free version
+instance Monad CReader where
+  -- return :: a -> CReader a
+  return = CReader . const
+  a >>= f = CReader $ \c -> runCR (f ((runCR a) c)) c
+
+validateAndInitLogM :: String -> CReader (IO (Maybe Handle))
+validateAndInitLogM p = do
+  v <- validateMessageF p
+  case v of
+    Left err -> return (putStrLn ("Invalid prompt: "++ p)
+                     >> return Nothing)
+    Right () -> do
+      h <- initLogFileF p
+      return (fmap Just h)
+
+-- this is mostly to get rid of the error raised by ghc: no instance for Applicative
+instance Applicative CReader where
+  pure  = return
+  (<*>) = ap
+
+-- Let's use the Reader (which is exactly like what we defined with CReader)
+validateMsgRdr :: String -> Reader AppConfig (Either String ())
+validateMsgRdr m = do
+  max <- reader maxMessageLength -- this equivalent to : max <- maxMessageLength <$> ask 
+  if(length m > max)
+    then return $ Left ("Message too long: " ++ m)
+    else return $ Right ()
+
+initLogFileRdr :: String -> Reader AppConfig (IO Handle)
+initLogFileRdr p = do
+  f <- reader logfile
+  v <- reader version
+  return $ do
+    h <- openFile f WriteMode
+    hPutStrLn h (p ++ "version: "++ v)
+    return h
+
+-- only problem with the above is that it's not running IO but returns an unevaluated IO action
+-- Reader is a monad , IO is a monad => only to kind of have both run at the same time if with a
+-- monad transformer -> ReaderT
+
+
+
