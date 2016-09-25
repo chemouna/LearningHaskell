@@ -1,7 +1,10 @@
 
 module Main where
 
+import System.IO
 
-main = do
-    a <- getLine
-    putStrLn a
+someFunc :: IO ()
+someFunc = putStrLn "someFunc"
+
+main :: IO ()
+main = someFunc
