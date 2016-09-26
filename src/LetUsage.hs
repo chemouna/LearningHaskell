@@ -76,4 +76,3 @@ foo3 a b = execWriter $ do
              when (y > 0) $ tell [5]
              when (x < a) $ tell [7]
              when (y < b) $ tell [9]
-t
