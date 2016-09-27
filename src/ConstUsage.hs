@@ -36,3 +36,6 @@ length'' = foldr (const (+1)) 0
 -- const id = flip const
 
 
+
+-- TODO: look into Const functor + forall + 
+
