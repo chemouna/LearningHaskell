@@ -32,3 +32,4 @@ bind' f (W x) = (f x)
 -- h ::  W Int -> W Int -> W Int
 -- h x y = y compw (+x) 
 
+-- continue with http://blog.sigfpe.com/2007/04/trivial-monad.html 
