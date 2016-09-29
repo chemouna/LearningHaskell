@@ -30,3 +30,5 @@ mapT f xs = s (k f) xs
 zipWithT f as bs     = s (mapT f as) bs
 zipT                 = zipWithT (,)
 zipWith3T f as bs cs = s (zipWithT f as bs) cs
+
+-- iterate
