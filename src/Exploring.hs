@@ -31,4 +31,50 @@ zipWithT f as bs     = s (mapT f as) bs
 zipT                 = zipWithT (,)
 zipWith3T f as bs cs = s (zipWithT f as bs) cs
 
--- iterate
+-- <$> -> is infix synonym of fmap
+
+-- mapM :: Monad m => (a -> m b) -> [a] -> m [b]
+-- mapM f as       =  sequence (map f as)
+
+-- mapM f as = foldr k (return []) as
+--             where
+--               k a r = do { x <- f a; xs <- r; return (x:xs) }
+
+-- sequence :: Monad m => [m a] -> m [a]
+-- sequence ms = foldr k (return []) ms
+--             where
+--               k m m' = do { x <- m; xs <- m'; return (x:xs) }
+
+-- 2nd way to implement it
+-- sequence = mapM id
+
+-- sequence implementation using foldr is like the impl of mapM using foldr but not
+-- applying a fn which is equivalent to applying id -> sequence = mapM id
+
+--  unionBy (on (==) fst)
+
+-- execState ?? [] $ modify (1:)
+
+-- instance Monoid a => Monoid (IO a) where
+--     mempty = pure mempty
+--     mappend = liftA2 mappend
+
+-- fromList [(5,'a'), (3,'b')] ! 1    Error: element not in the map
+-- fromList [(5,'a'), (3,'b')] ! 5 == 'a'
+
+
+-- all p = getAll #. foldMap (All #. p)
+
+    -- fold :: Monoid m => t m -> m
+    -- fold = foldMap id
+
+    -- -- | Map each element of the structure to a monoid,
+    -- -- and combine the results.
+    -- foldMap :: Monoid m => (a -> m) -> t a -> m
+    -- foldMap f = foldr (mappend . f) mempty
+
+    -- elem :: Eq a => a -> t a -> Bool
+    -- elem = any . (==)
+
+-- any :: Foldable t => (a -> Bool) -> t a -> Bool
+-- any p = getAny #. foldMap (Any #. p)
