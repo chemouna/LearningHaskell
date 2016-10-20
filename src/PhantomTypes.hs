@@ -75,3 +75,23 @@ distanceKmToMilles2 (Distance2 km) = Distance2 (0.62 * km)
 
 marathonDistanceInMiles2 :: Distance2 'Mile
 marathonDistanceInMiles2 = distanceKmToMilles2 marathonDistance2
+
+
+--
+
+data Message a = Message String
+data PlainText
+data Encrypted
+
+send :: Message Encrypted -> IO ()
+send = undefined
+
+encrypt :: Message PlainText -> Message Encrypted
+encrypt = undefined
+
+decrypt :: Message Encrypted -> Message PlainText
+decrypt = undefined
+
+messageLength :: Message a -> Int
+messageLength (Message m) = length m
+

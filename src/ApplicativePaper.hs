@@ -1,0 +1,3 @@
+
+module ApplicativePaper where
+
