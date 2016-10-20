@@ -2,6 +2,8 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE StandaloneDeriving #-}
 
 module PhantomTypes where
 
@@ -76,6 +78,21 @@ distanceKmToMilles2 (Distance2 km) = Distance2 (0.62 * km)
 marathonDistanceInMiles2 :: Distance2 'Mile
 marathonDistanceInMiles2 = distanceKmToMilles2 marathonDistance2
 
+-- using GADTs
+data Distance3 a where
+  KilometerDistance :: Double -> Distance3 Kilometer
+  MileDistance      :: Double -> Distance3 Mile
+
+deriving instance Show (Distance3 a)
+
+marathonDistance3 :: Distance3 Kilometer
+marathonDistance3 = KilometerDistance 42.25
+
+distanceKmToMiles3 :: Distance3 Kilometer -> Distance3 Mile
+distanceKmToMiles3 (KilometerDistance km) = MileDistance (0.62 * km)
+
+marathonDistanceInMiles3 :: Distance3 Mile
+marathonDistanceInMiles3 = distanceKmToMiles3 marathonDistance3
 
 --
 
