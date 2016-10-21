@@ -44,7 +44,7 @@ evalBoolExpr e = eval3 e >>= unwrap
   where unwrap (Left x) = Nothing
         unwrap (Right x) = Just x
 
--- let's try to remove the duplication of code we have 
+-- let's try to remove the duplication of code we have
 eval4 :: Expr -> Maybe (Either Int Bool)
 eval4 (I n) = return $ Left n
 eval4 (B b) = return $ Right b
@@ -63,5 +63,24 @@ evalIntExpr4 e = eval4 e >>= (either Just (\_ -> Nothing))
 evalBoolExpr4 :: Expr -> Maybe Bool
 evalBoolExpr4 e = eval4 e >>= (either (\_ -> Nothing) Just)
 
--- let's see if we can improve it with applicative 
+-- let's use phantom types to improve this
+data Expr2 a = I2 Int
+             | B2 Bool
+             | Add2 (Expr2 a) (Expr2 a)
+             | Mul2 (Expr2 a) (Expr2 a)
+             | Eq2 (Expr2 a) (Expr2 a)
+add :: Expr2 Int -> Expr2 Int -> Expr2 Int
+add = Add2
 
+i :: Int -> Expr2 Int
+i = I2
+b :: Bool -> Expr2 Bool
+b = B2
+
+mul :: Expr2 Int -> Expr2 Int -> Expr2 Int
+mul = Mul2
+
+eval5 :: Expr2 a -> a
+-- eval5 (I2 n) = n -- this doesn't type check -> the compiler can't know that I2 mean a = Int
+eval5 _ = undefined
+ 
