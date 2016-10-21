@@ -100,3 +100,6 @@ eval6 (B3 b) = b
 eval6 (Add3 e1 e2) = eval6 e1 + eval6 e2
 eval6 (Mul3 e1 e2) = eval6 e1 * eval6 e2
 eval6 (Eq3 e1 e2) = eval6 e1 == eval6 e2
+
+data FooInGadtClothing a where
+  MkFooInGadtClothing :: a -> 
