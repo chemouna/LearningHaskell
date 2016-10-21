@@ -1,3 +1,4 @@
+{-# LANGUAGE GADTs #-}
 module GADTs where
 
 import Data.Maybe
@@ -83,4 +84,19 @@ mul = Mul2
 eval5 :: Expr2 a -> a
 -- eval5 (I2 n) = n -- this doesn't type check -> the compiler can't know that I2 mean a = Int
 eval5 _ = undefined
- 
+
+
+-- let's try with GADTs
+data Expr3 a where
+  I3 :: Int -> Expr3 Int
+  B3 :: Bool -> Expr3 Bool
+  Add3 :: Expr3 Int -> Expr3 Int -> Expr3 Int
+  Mul3 :: Expr3 Int -> Expr3 Int -> Expr3 Int
+  Eq3 :: Expr3 Int -> Expr3 Int -> Expr3 Bool
+
+eval6 :: Expr3 a -> a
+eval6 (I3 n) = n
+eval6 (B3 b) = b
+eval6 (Add3 e1 e2) = eval6 e1 + eval6 e2
+eval6 (Mul3 e1 e2) = eval6 e1 * eval6 e2
+eval6 (Eq3 e1 e2) = eval6 e1 == eval6 e2
