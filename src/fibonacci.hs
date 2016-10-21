@@ -16,3 +16,6 @@ fibM n = flip evalState (0, 1) $ do
     put (b, a+b)
   (a,b) <- get
   return a
+
+-- with zipwith
+fibZ = 0 : 1 : zipWith (+) fibZ (tail fibZ)
