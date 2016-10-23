@@ -55,3 +55,7 @@ listLongerThan2 :: Int -> Gen [Int]
 listLongerThan2 n = do
   y <- fmap (+1) smallNumber
   replicateM (n+y) arbitrary
+
+-- another way to do it
+prop_3ad xs n = n >= 0 ==> length xs > n ==> element_at xs n == xs !! n
+
