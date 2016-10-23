@@ -30,3 +30,28 @@ instance Arbitrary R2 where
 
 prop_f'' (R1 x) (R2 y) = f x y
 
+-- 3 (find k"th element of a list)
+element_at xs n = xs !! n
+prop_3a xs n = (n < length xs && n >= 0) ==> element_at xs (n :: Int) == (xs !! n :: Int)
+
+prop_3aa (NonEmpty xs) n = forAll (choose (0, length xs - 1)) $ \i ->
+  element_at xs i == xs !! i
+
+prop_3ab xs n = n >= 0 ==> forAll (listLongerThan n) $ \xs ->
+  element_at xs n == xs !! n
+
+listLongerThan :: Int -> Gen [Int]
+listLongerThan n = replicateM (n + 1) arbitrary
+
+-- listLongetThan generates only lists with lengths n + 1 -> let's improve it
+prop_3ac = forAll smallNumber $ \n ->
+           forAll (listLongerThan2 n) $ \xs ->
+           element_at xs n == xs !! n
+
+smallNumber :: Gen Int
+smallNumber = fmap (`mod` 100) arbitrary
+
+listLongerThan2 :: Int -> Gen [Int] 
+listLongerThan2 n = do
+  y <- fmap (+1) smallNumber
+  replicateM (n+y) arbitrary
