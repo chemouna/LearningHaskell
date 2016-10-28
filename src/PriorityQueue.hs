@@ -1,6 +1,7 @@
 module PriorityQueue where
 
 import qualified SkewHeap as SH
+import qualified PairingHeap as PH
 
 class PriorityQueue q where
   extractMin :: Ord a => q a -> Maybe (a, q a)
@@ -17,5 +18,10 @@ instance PriorityQueue SH.SkewHeap where
   singleton = SH.singleton
   insert = SH.insert
 
+instance PriorityQueue PH.PairingHeap where
+  extractMin = undefined
+  union = PH.union
+  singleton = undefined
+  insert = undefined
 
-
+  
