@@ -12,7 +12,7 @@ class PriorityQueue q where
   insert :: Ord a => a -> q a -> q a
 
 instance PriorityQueue SH.SkewHeap where
-  extractMin = undefined
+  extractMin = SH.extractMin
   union = SH.union
   singleton = SH.singleton
   insert = undefined

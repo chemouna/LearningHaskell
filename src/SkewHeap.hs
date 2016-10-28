@@ -1,7 +1,8 @@
-
 module SkewHeap(
                SkewHeap,
-               union
+               union,
+               singleton,
+               extractMin
                ) where
 
 -- Skew Heap
@@ -18,5 +19,8 @@ union heap Empty = heap
 singleton :: Ord a => a -> SkewHeap a
 singleton a = SkewNode a Empty Empty
 
+extractMin :: Ord a => SkewHeap a -> Maybe (a, SkewHeap a)
+extractMin Empty = Nothing
+extractMin (SkewNode x l r) = Just (x, (l `union` r))
 
 
