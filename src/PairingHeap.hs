@@ -1,8 +1,10 @@
 module PairingHeap(
                  PairingHeap,
                  union,
-                 extractMin
-                  ) where
+                 extractMin,
+                 insert,
+                 singleton
+                 ) where
 
 data PairingHeap a = Empty | PairNode a [PairingHeap a]
 
@@ -19,3 +21,12 @@ extractMin (PairNode x ts) = Just (x, meldChildren ts)
         meldChildren [t] = t
         meldChildren [] = Empty
 extractMin Empty = Nothing
+
+singleton :: Ord a => a -> PairingHeap a
+singleton x = PairNode x []
+
+peekMin :: Ord a => PairingHeap a -> Maybe a
+peekMin h = fmap fst $ extractMin h
+
+insert :: Ord a => a -> PairingHeap a -> PairingHeap a
+insert a h = singleton a `union` h

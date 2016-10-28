@@ -21,6 +21,6 @@ instance PriorityQueue SH.SkewHeap where
 instance PriorityQueue PH.PairingHeap where
   extractMin = PH.extractMin
   union = PH.union
-  singleton = undefined
-  insert = undefined
+  singleton = PH.singleton
+  insert = PH.insert
 
