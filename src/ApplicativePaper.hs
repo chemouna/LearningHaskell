@@ -1,4 +1,3 @@
 
 module ApplicativePaper where
 
-b
