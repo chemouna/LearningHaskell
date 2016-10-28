@@ -15,7 +15,7 @@ instance PriorityQueue SH.SkewHeap where
   extractMin = SH.extractMin
   union = SH.union
   singleton = SH.singleton
-  insert = undefined
+  insert = SH.insert
 
 
 

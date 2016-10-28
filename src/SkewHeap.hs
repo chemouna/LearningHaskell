@@ -2,7 +2,8 @@ module SkewHeap(
                SkewHeap,
                union,
                singleton,
-               extractMin
+               extractMin,
+               insert
                ) where
 
 -- Skew Heap
@@ -23,4 +24,6 @@ extractMin :: Ord a => SkewHeap a -> Maybe (a, SkewHeap a)
 extractMin Empty = Nothing
 extractMin (SkewNode x l r) = Just (x, (l `union` r))
 
+insert :: Ord a => a -> SkewHeap a -> SkewHeap a
+insert a h = singleton a `union` h
 
