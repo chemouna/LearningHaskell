@@ -6,6 +6,8 @@ module PairingHeap(
                  singleton
                  ) where
 
+import Data.Foldable
+
 data PairingHeap a = Empty | PairNode a [PairingHeap a]
 
 union :: Ord a => PairingHeap a -> PairingHeap a -> PairingHeap a
@@ -30,3 +32,6 @@ peekMin h = fmap fst $ extractMin h
 
 insert :: Ord a => a -> PairingHeap a -> PairingHeap a
 insert a h = singleton a `union` h
+
+insertMany :: (Foldable t, Ord a) => t a -> PairingHeap a -> PairingHeap a
+insertMany as h = foldl (\h x -> insert x h) Empty as 
