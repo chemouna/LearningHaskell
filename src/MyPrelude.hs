@@ -13,3 +13,4 @@ xs `myindex` k | k < 0 = error "Cannot get a value for a negative index"
 myDeleteBy :: (a -> a -> Bool) -> a -> [a] -> [a]
 myDeleteBy _ _ [] = []
 myDeleteBy eq v (x:xs) = if v `eq` x then xs else x : myDeleteBy eq v xs
+
