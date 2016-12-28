@@ -83,7 +83,7 @@ executable LearningHaskell
                      , text >= 1.2.2.1
                      , transformers >= 0.4.2.0
                      , cond >= 0.4
-                     
+                     , MonadRandom
   -- Directories containing source files.
   hs-source-dirs:      src
   
