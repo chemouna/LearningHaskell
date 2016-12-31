@@ -47,6 +47,10 @@ tossCoin3_4 g =
   in (num1, num2, num3)
 
 -- | improvement 5 : using applicatives and MonadRandom to make it even better
--- tossCoin3_5 :: (RandomGen g, Random a) => g -> (a, a, a)
--- tossCoin3_5 = evalRand $ (,,) <$> random <*> random <*> random
+-- tossCoin3_5 :: (RandomGen g, Random Bool) => g -> (Bool, Bool, Bool)
+-- tossCoin3_5 = runIdentity $ evalRand $ (,,) <$> random <*> random <*> random
+
+-- tossCoin3_5 :: (RandomGen g) => g -> (Bool, Bool, Bool)
+-- tossCoin3_5 = runIdentity $ evalRand (((,,) <$> random <*> random <*> random) randomRs (True, False) newStdGen)
+
 
