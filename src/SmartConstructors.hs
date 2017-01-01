@@ -2,10 +2,12 @@
 
 module SmartConstructors(
                     Resistor, -- this way we hide the constructor
-                    metalResistor -- and expose the constructor we want
-                        ) where
+                    metalResistor, -- and expose the constructor we want
+                    MyType, createMyType,
+                    MyType', createMyType') where
 
 import Control.Exception
+import Data.Time.Calendar
 
 data Resistor = Metal Bands
               | Ceramic Bands
@@ -66,9 +68,25 @@ mkEmail :: String -> Maybe Email
 mkEmail s = undefined
 
 
+-- | Example 3: add restictions to types 
+data Schedule = Schedule { startDate :: Day
+    , endDate :: Day }
+    deriving (Show)
 
+mkSchedule :: Day -> Day -> Schedule
+mkSchedule start end = assert (start < end) $ Schedule start end
 
+-- | Example 4
+-- I want to make a type MyType of integer triples. But not just Cartesian product of three Integer,
+-- I want the type to represent all (x, y, z) such that x + y + z = 5
+data MyType = MT { x :: Int, y :: Int, z :: Int}
 
+createMyType :: Int -> Int -> MyType 
+createMyType myX myY = MT { x = myX, y = myY, z = myX - myY }
 
+-- what if we wanted to create a tuple with this condition x*x + y*y + z*z == 5
+data MyType' = MT' { x' :: Int, y' :: Int, z' :: Int}
 
+createMyType' :: Int -> Int -> Int -> Maybe MyType'
+createMyType' myX myY myZ = assert ( myX*myX + myY*myY + myZ*myZ == 5) $ MT' myX myY myZ
 

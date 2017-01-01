@@ -57,11 +57,13 @@ executable LearningHaskell
   -- other-extensions:    
   
   -- Other library packages from which modules are imported.
-  build-depends:       QuickCheck >= 2.8.2
+  build-depends:       MonadRandom
+                     , QuickCheck >= 2.8.2
                      , aeson >= 0.11.2.0
                      , array >= 0.5.1.0
                      , base >=4.8 && <4.9
                      , bytestring >= 0.10.6.0
+                     , cond >= 0.4
                      , configurator >= 0.3.0.0
                      , containers >= 0.5.6.2
                      , contravariant >= 1.4
@@ -81,9 +83,8 @@ executable LearningHaskell
                      , syb >= 0.6
                      , template-haskell
                      , text >= 1.2.2.1
+                     , time >= 1.5.0.1
                      , transformers >= 0.4.2.0
-                     , cond >= 0.4
-                     , MonadRandom
   -- Directories containing source files.
   hs-source-dirs:      src
   
