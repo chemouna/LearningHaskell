@@ -76,6 +76,12 @@ data Schedule = Schedule { startDate :: Day
 mkSchedule :: Day -> Day -> Schedule
 mkSchedule start end = assert (start < end) $ Schedule start end
 
+-- or better instead of throwing an assert error
+mkSchedule' :: Day -> Day -> Maybe Schedule
+mkSchedule' s e
+  | s < e = Just Schedule s e
+  | otherwise = Nothing
+
 -- | Example 4
 -- I want to make a type MyType of integer triples. But not just Cartesian product of three Integer,
 -- I want the type to represent all (x, y, z) such that x + y + z = 5
@@ -88,5 +94,7 @@ createMyType myX myY = MT { x = myX, y = myY, z = myX - myY }
 data MyType' = MT' { x' :: Int, y' :: Int, z' :: Int}
 
 createMyType' :: Int -> Int -> Int -> Maybe MyType'
-createMyType' myX myY myZ = assert ( myX*myX + myY*myY + myZ*myZ == 5) $ MT' myX myY myZ
+createMyType' a b c
+    | a + b + c == 5 = Just MT' { x' = a, y' = b, z' = c }
+    | otherwise      = Nothing
 
