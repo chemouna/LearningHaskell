@@ -3,11 +3,17 @@
 module SmartConstructors(
                     Resistor, -- this way we hide the constructor
                     metalResistor, -- and expose the constructor we want
+                    Schedule,
+                    mkSchedule',
                     MyType, createMyType,
-                    MyType', createMyType') where
+                    MyType', createMyType',
+                    Name, -- exports the type Name, but not the data constructor Name
+                    nameFromString,
+                    stringFromName) where
 
 import Control.Exception
 import Data.Time.Calendar
+import Data.Maybe
 
 data Resistor = Metal Bands
               | Ceramic Bands
@@ -68,7 +74,7 @@ mkEmail :: String -> Maybe Email
 mkEmail s = undefined
 
 
--- | Example 3: add restictions to types 
+-- | Example 3: add restictions to types
 data Schedule = Schedule { startDate :: Day
     , endDate :: Day }
     deriving (Show)
@@ -87,7 +93,7 @@ mkSchedule' s e
 -- I want the type to represent all (x, y, z) such that x + y + z = 5
 data MyType = MT { x :: Int, y :: Int, z :: Int}
 
-createMyType :: Int -> Int -> MyType 
+createMyType :: Int -> Int -> MyType
 createMyType myX myY = MT { x = myX, y = myY, z = myX - myY }
 
 -- what if we wanted to create a tuple with this condition x*x + y*y + z*z == 5
@@ -98,3 +104,31 @@ createMyType' a b c
     | a + b + c == 5 = Just MT' { x' = a, y' = b, z' = c }
     | otherwise      = Nothing
 
+
+-- | Example 5: forbid to create a Person with to long name (String containing no more than 10 letters)
+data Name = Name String
+
+-- this is the only way to create a Name
+nameFromString :: String -> Maybe Name
+nameFromString s | length s > 10 = Nothing
+                 | otherwise     = Just (Name s)
+
+-- this is the only way to access the contents of a Name
+stringFromName :: Name -> String
+stringFromName (Name s) = s
+
+-- and if you wanted to throw an exception
+nameFromString' :: String -> Name
+nameFromString' = fromMaybe (error "attempted to construct an invalid Name") . nameFromString
+
+-- but throwing isnt a good idea most of the time for example
+-- only the first approach works well in this :
+
+-- if we were using returning the error it would make things more complex
+askUserForName :: IO Name
+askUserForName
+   = do putStr "What's your name? (10 chars max)  "
+        s <- getLine
+        case nameFromString s of
+            Just n  -> return n
+            Nothing -> askUserForName
