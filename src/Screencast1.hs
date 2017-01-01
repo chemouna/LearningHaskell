@@ -38,6 +38,7 @@ type Vect2d = (Float, Float)
 --                          | Translate Vect2d Obj2d
 
 data Obj2d where
+  
   Rect :: Float -> Float -> Obj2d
   Translate :: Vect2d -> Obj2d 
 

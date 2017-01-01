@@ -178,4 +178,5 @@ battle = do
             x += 10
             y += 10
 
--- execStateT battle initialState  
+-- execStateT battle initialState
+
