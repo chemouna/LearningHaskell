@@ -29,10 +29,9 @@ find_subarray_greatest_sum = maximum . concatMap (scanl1 (+)) . scanr (:) []
 -- What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer with
 -- (1,2, ... , n) where n > 1?
 
-
 solve = maximum $ concatMap largestPandigital [2..9]
 
-largestPandigital n = filter isPandigital $  map (flip cp [1..n]) [1..10^(9 `div` n + 1)]
+largestPandigital n = filter isPandigital $ map (flip cp [1..n]) [1..10^(9 `div` n + 1)]
 
 isPandigital = (== "123456789") . sort
 cp x = concatMap (show . (*x))
