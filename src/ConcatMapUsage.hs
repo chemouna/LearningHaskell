@@ -1,7 +1,8 @@
-
 module ConcatMapUsage where
 
 import Data.List
+import Data.Ord
+import Data.Function
 
 -- | Problem #1 :  Replicate the elements of a list a given number of times.
 repli :: [a] -> Int -> [a]
@@ -46,3 +47,21 @@ solve38 = maximum $ concatMap largestPandigital [2..9]
 digitAt n =  read [concatMap show [1..] !! (n - 1)] :: Int
 
 solve40 = product $ map digitAt [floor $ 10 ** x | x <- [1..5]]
+
+-- | Euler 41
+-- We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once.
+-- For example, 2143 is a 4-digit pandigital and is also prime.
+-- What is the largest n-digit pandigital prime that exists?
+
+isNPandigital x n = sort (show x) == concatMap show [1..n]
+
+isqrt = floor . sqrt . fromIntegral
+
+isPrime k = null [ x | x <- [2..isqrt k], k `mod`x  == 0]
+
+solve41 n = maximum [x | x <- [start..end], isPrime x, isNPandigital x n]
+                      where start = 10^(n - 1)
+                            end = read (concatMap show (replicate n 9)) :: Int
+
+solve41' = head . filter isPrime . sortBy (compare `on` Down) . map read .
+          concatMap permutations . tail . inits $ "123456789"
