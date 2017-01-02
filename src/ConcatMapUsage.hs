@@ -29,10 +29,20 @@ find_subarray_greatest_sum = maximum . concatMap (scanl1 (+)) . scanr (:) []
 -- What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer with
 -- (1,2, ... , n) where n > 1?
 
-solve = maximum $ concatMap largestPandigital [2..9]
-
 largestPandigital n = filter isPandigital $ map (flip cp [1..n]) [1..10^(9 `div` n + 1)]
 
 isPandigital = (== "123456789") . sort
 cp x = concatMap (show . (*x))
 
+solve38 = maximum $ concatMap largestPandigital [2..9]
+
+-- | Project Euler #40
+-- An irrational decimal fraction is created by concatenating the positive integers:
+-- 0.123456789101112131415161718192021...
+-- It can be seen that the 12th digit of the fractional part is 1.
+-- If dn represents the nth digit of the fractional part, find the value of the following expression.
+-- d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
+
+digitAt n =  read [concatMap show [1..] !! (n - 1)] :: Int
+
+solve40 = product $ map digitAt [floor $ 10 ** x | x <- [1..5]]
