@@ -3,7 +3,7 @@
 module Lists where
 
 import Data.Function (on)
-import Data.List (sortBy, groupBy)
+import Data.List (sortBy, groupBy, delete, map)
 import Data.Ord (comparing)
 import Data.Map (fromListWith)
 
@@ -31,4 +31,11 @@ myGroup = map (\x -> (fst . head $ x, map snd x)) . groupBy ((==) `on` fst) . so
 
 myGroup2 xs = fromListWith (++) [(k, [v]) | (k, v) <- xs]
 
--- with a state monad
+
+-- find all permutations of a list
+permute :: Eq a => [a] -> [[a]]
+permute [] = [[]]
+-- permute xs = concatMap (\x -> map (x:) $ permute $ delete x xs) xs
+
+permute xs = concatMap (\x -> map (x:) (permute (delete x xs))) xs
+
