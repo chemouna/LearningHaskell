@@ -1,5 +1,32 @@
 
-./Catamorphisms.hs,279
+./Setup.hs,15
+main main2,3
+
+./src/ApplicativePaper.hs,46
+module ApplicativePaper ApplicativePaper1,2
+
+./src/ApplicativeUsage.hs,46
+module ApplicativeUsage ApplicativeUsage1,2
+
+./src/AvoidPartialFns.hs,44
+module AvoidPartialFns AvoidPartialFns1,2
+
+./src/BenchmarkExample.hs,285
+module BenchmarkExample BenchmarkExample1,2
+main main9,10
+main main10,11
+generateInput generateInput29,30
+generateInput generateInput30,31
+sol1 sol133,34
+sol1 sol134,35
+sol2 sol240,41
+sol2 sol241,42
+sol3 sol345,46
+sol3 sol346,47
+sol4 sol452,53
+sol4 sol453,54
+
+./src/Catamorphisms.hs,279
 module Catamorphisms Catamorphisms1,2
 type StepAlgebra StepAlgebra3,4
 type StepAlgebra b b3,4
@@ -10,15 +37,6 @@ foldSteps foldSteps6,7
 foldSteps foldSteps7,8
 type Algebra Algebra13,14
 type Algebra f f13,14
-
-./ConstructingApplicativeFunctors.hs,76
-module ConstructingApplicativeFunctors ConstructingApplicativeFunctors4,5
-
-./Setup.hs,15
-main main2,3
-
-./src/AvoidPartialFns.hs,44
-module AvoidPartialFns AvoidPartialFns1,2
 
 ./src/Cis194.hs,804
 module Cis194 Cis1942,3
@@ -54,6 +72,77 @@ f1 f166,67
 f2 f268,69
 f2 f269,70
 
+./src/CombinatorsUsage.hs,46
+module CombinatorsUsage CombinatorsUsage1,2
+
+./src/ConcatMapUsage.hs,420
+module ConcatMapUsage ConcatMapUsage0,1
+repli repli7,8
+repli repli8,9
+find_subarray_greatest_sum find_subarray_greatest_sum18,19
+largestPandigital largestPandigital32,33
+isPandigital isPandigital34,35
+cp cp35,36
+solve38 solve3837,38
+digitAt digitAt46,47
+solve40 solve4048,49
+isNPandigital isNPandigital55,56
+isqrt isqrt57,58
+isPrime isPrime59,60
+solve41 solve4161,62
+solve41' solve41'65,66
+
+./src/ConditionalMonad.hs,83
+module ConditionalMonad ConditionalMonad1,2
+(=(6,7
+(====:6,7
+main main9,10
+
+./src/ConstructingApplicativeFunctors.hs,76
+module ConstructingApplicativeFunctors ConstructingApplicativeFunctors2,3
+
+./src/ConstUsage.hs,130
+module ConstUsage ConstUsage1,2
+length' length'20,21
+length' length'21,22
+length'' length''24,25
+length'' length''25,26
+
+./src/ContravariantFunctor.hs,921
+module ContravariantFunctor ContravariantFunctor1,2
+lengther lengther9,10
+lengther lengther10,11
+setLengther setLengther12,13
+setLengther setLengther13,14
+data Behavior Behavior15,16
+data Behavior a = Behavior Behavior15,16
+instance instance17,18
+runBehavior runBehavior20,21
+runBehavior runBehavior21,22
+printer printer26,27
+printer printer27,28
+messages messages29,30
+messages messages30,31
+testPrinter testPrinter32,33
+shouter shouter35,36
+shouter shouter36,37
+testShouter testShouter38,39
+makeMailbox makeMailbox40,41
+makeMailbox makeMailbox41,42
+mailbox mailbox55,56
+mailbox mailbox56,57
+testMailbox testMailbox58,59
+logMsg logMsg66,67
+logMsg logMsg67,68
+loggerMailbox loggerMailbox70,71
+loggerMailbox loggerMailbox71,72
+testLogger testLogger73,74
+newtype Flip Flip82,83
+newtype Flip f a b = Flip Flip82,83
+newtype Flip f a b = Flip { unFlip unFlip82,83
+
+./src/Course1.hs,0
+
 ./src/DataKinds.hs,0
 
 ./src/DataTypeable.hs,264
@@ -75,6 +164,38 @@ filterdec filterdec4,5
 filterdec filterdec5,6
 filterexp filterexp11,12
 filterexp filterexp12,13
+
+./src/DeriveGenerics.hs,305
+module DeriveGenerics DeriveGenerics4,5
+data Valid Valid9,10
+data Valid e a = Error Error9,10
+data Valid e a = Error e | OK OK9,10
+class GetError GetError13,14
+class GetError GetError13,14
+  getError' getError'14,15
+instance instance16,17
+getError getError26,27
+getError getError27,28
+
+./src/Deriving.hs,562
+module Deriving Deriving6,7
+data MiniIoF MiniIoF15,16
+data MiniIoF a = TerminateTerminate15,16
+  | PrintLine PrintLine16,17
+  | ReadLine ReadLine17,18
+  _ `fmap`fmap22,23
+data MiniIoF2 MiniIoF227,28
+data MiniIoF2 a = Terminate2Terminate227,28
+  | PrintLine2 PrintLine228,29
+  | ReadLine2 ReadLine229,30
+data List List33,34
+data List a = Nil Nil33,34
+data List a = Nil | Cons Cons33,34
+instance instance35,36
+data List2 List243,44
+data List2 a = Nil2 Nil243,44
+data List2 a = Nil2 | Cons2 Cons243,44
+data AppStateAppState45,46
 
 ./src/DigestiveFunctors.hs,817
 module Main Main2,3
@@ -110,6 +231,70 @@ app app94,95
 main main99,100
 main main100,101
 
+./src/Effectful.hs,2285
+module Effectfull Effectfull2,3
+data AppConfig AppConfig15,16
+data AppConfig = AppConfig AppConfig15,16
+    logfile logfile16,17
+   , version version17,18
+   , maxMessageLength maxMessageLength18,19
+initLogFile initLogFile22,23
+initLogFile initLogFile23,24
+validateMessage validateMessage28,29
+validateMessage validateMessage29,30
+type ConfigReader ConfigReader37,38
+type ConfigReader a a37,38
+initLogFileTS initLogFileTS38,39
+initLogFileTS initLogFileTS39,40
+validateMessageTS validateMessageTS41,42
+validateMessageTS validateMessageTS42,43
+validateAndInitLogTS validateAndInitLogTS46,47
+validateAndInitLogTS validateAndInitLogTS47,48
+newtype CReader CReader55,56
+newtype CReader a = CReader CReader55,56
+newtype CReader a = CReader { runCR runCR55,56
+initLogFileCR initLogFileCR57,58
+initLogFileCR initLogFileCR58,59
+validateMessageCR validateMessageCR60,61
+validateMessageCR validateMessageCR61,62
+validateAndInitLogCR validateAndInitLogCR63,64
+validateAndInitLogCR validateAndInitLogCR64,65
+runCRWithConfig runCRWithConfig70,71
+runCRWithConfig runCRWithConfig71,72
+instance instance80,81
+askConfig askConfig88,89
+askConfig askConfig89,90
+validateMessageF validateMessageF92,93
+validateMessageF validateMessageF93,94
+initLogFileF initLogFileF95,96
+initLogFileF initLogFileF96,97
+validateAndInitLogF validateAndInitLogF98,99
+validateAndInitLogF validateAndInitLogF99,100
+validateAndInitLogM validateAndInitLogM120,121
+validateAndInitLogM validateAndInitLogM121,122
+validateMsgRdr validateMsgRdr141,142
+validateMsgRdr validateMsgRdr142,143
+initLogFileRdr initLogFileRdr148,149
+initLogFileRdr initLogFileRdr149,150
+initLogFileRT initLogFileRT161,162
+initLogFileRT initLogFileRT162,163
+validateMsgRT validateMsgRT169,170
+validateMsgRT validateMsgRT170,171
+validateMessageRTM validateMessageRTM175,176
+validateMessageRTM validateMessageRTM176,177
+validateMessageMR validateMessageMR181,182
+validateMessageMR validateMessageMR182,183
+initLogFileMR initLogFileMR187,188
+initLogFileMR initLogFileMR188,189
+readConfig readConfig196,197
+readConfig readConfig197,198
+main main200,201
+main main201,202
+go go206,207
+go go207,208
+logMsg logMsg218,219
+logMsg logMsg219,220
+
 ./src/ErrorHandling.hs,120
 module ErrorHandling ErrorHandling1,2
 myDiv1 myDiv16,7
@@ -117,13 +302,17 @@ myDiv1 myDiv17,8
 myDiv2 myDiv211,12
 myDiv2 myDiv212,13
 
-./src/ExistentiallyQuantifiedTypes.hs,219
-module ExistentiallyQuantifiedTypes ExistentiallyQuantifiedTypes3,4
-newtype Pair Pair5,6
-newtype Pair a b = Pair Pair5,6
-newtype Pair a b = Pair {runPair runPair5,6
-makePair makePair7,8
+./src/ExistentiallyQuantifiedTypes.hs,310
+module ExistentiallyQuantifiedTypes ExistentiallyQuantifiedTypes4,5
+newtype Pair Pair6,7
+newtype Pair a b = Pair Pair6,7
+newtype Pair a b = Pair {runPair runPair6,7
 makePair makePair8,9
+makePair makePair9,10
+data Foo Foo13,14
+data Foo = forall forall13,14
+test2 test220,21
+test2 test221,22
 
 ./src/experiments.hs,1008
 module Experiments Experiments0,1
@@ -166,6 +355,75 @@ uppercase uppercase66,67
 uppercase2 uppercase268,69
 uppercase2 uppercase269,70
 
+./src/Explore2.hs,369
+module Explore2 Explore21,2
+data Age Age8,9
+data Age = Age Age8,9
+instance instance11,12
+type Name Name14,15
+data Person Person15,16
+data Person = Person Person15,16
+prop_Square prop_Square23,24
+prop_cubeOfPositive prop_cubeOfPositive24,25
+fibs fibs27,28
+smallNonNegativeIntegers smallNonNegativeIntegers29,30
+prop_fibonacci prop_fibonacci31,32
+
+./src/Explore3.hs,645
+module Explore3 Explore30,1
+f f6,7
+f f7,8
+prop_f prop_f9,10
+prop_f prop_f10,11
+prop_f' prop_f'14,15
+prop_f' prop_f'15,16
+newtype R1 R121,22
+newtype R1 = R1 R121,22
+newtype R2 R222,23
+newtype R2 = R2 R222,23
+instance instance24,25
+prop_f'' prop_f''30,31
+element_at element_at33,34
+prop_3a prop_3a34,35
+prop_3aa prop_3aa36,37
+prop_3ab prop_3ab39,40
+listLongerThan listLongerThan42,43
+listLongerThan listLongerThan43,44
+prop_3ac prop_3ac46,47
+smallNumber smallNumber50,51
+smallNumber smallNumber51,52
+listLongerThan2 listLongerThan253,54
+listLongerThan2 listLongerThan254,55
+prop_3ad prop_3ad59,60
+
+./src/ExploreArrays.hs,595
+module ExploreArrays ExploreArrays2,3
+squares squares7,8
+squares squares8,9
+mkArray mkArray10,11
+mkArray mkArray11,12
+squares' squares'13,14
+squares' squares'14,15
+fibs fibs16,17
+fibs fibs17,18
+test test20,21
+test test21,22
+swapRows swapRows24,25
+swapRows swapRows25,26
+swapRows2 swapRows229,30
+swapRows2 swapRows230,31
+hist hist36,37
+hist hist37,38
+testHist testHist39,40
+testHist2 testHist241,42
+count count46,47
+count count47,48
+sort sort49,50
+arrcount arrcount52,53
+arrcount arrcount53,54
+arrcount2 arrcount255,56
+arrcount2 arrcount256,57
+
 ./src/ExploreFunctionsTuples.hs,425
 module ExploreFunctionsTuples ExploreFunctionsTuples1,2
 boring boring8,9
@@ -179,19 +437,63 @@ tupleMemberInsert2 tupleMemberInsert220,21
 tupleMemberInsert3 tupleMemberInsert323,24
 tupleMemberInsert3 tupleMemberInsert324,25
 
-./src/Exploring.hs,86
+./src/ExploreTypesClasses.hs,125
+module ExploreTypeClasses ExploreTypeClasses2,3
+class PolyParam PolyParam4,5
+class PolyParam PolyParam4,5
+  op op5,6
+
+./src/Exploring.hs,332
 module Exploring Exploring0,1
 prob1_sol1 prob1_sol16,7
 prob1_sol1 prob1_sol17,8
+zipMap1 zipMap112,13
+zipMap1 zipMap113,14
+zipMap2 zipMap217,18
+zipMap2 zipMap218,19
+zipMap3 zipMap321,22
+zipMap3 zipMap322,23
+s s25,26
+k k26,27
+mapT mapT28,29
+zipWithT zipWithT29,30
+zipT zipT30,31
+zipWith3T zipWith3T31,32
 
 ./src/fac.hs,35
 module Test Test0,1
 fac fac2,3
 
-./src/fibonacci.hs,58
+./src/fibonacci.hs,104
 module Fibonacci Fibonacci0,1
-fib fib2,3
-fib fib3,4
+nthfib nthfib6,7
+nthfib nthfib7,8
+fibM fibM12,13
+fibZ fibZ20,21
+
+./src/Finding.hs,153
+module Finding Finding0,1
+countSubStrs countSubStrs5,6
+countSubStrs countSubStrs6,7
+displayCount displayCount8,9
+displayCount displayCount9,10
+
+./src/FindingRectangles.hs,428
+module FindingRectangles FindingRectangles0,1
+type Image Image8,9
+data Rect Rect11,12
+data Rect = Rect Rect11,12
+data Rect = Rect { left, top, width, height height11,12
+imWidth, imHeight imHeight14,15
+imWidth,imWidth14,15
+imHeight imHeight15,16
+imWidth imWidth16,17
+area, perimeter perimeter19,20
+area,area19,20
+area area20,21
+perimeter perimeter21,22
+contains contains24,25
+contains contains25,26
 
 ./src/FingerTree.hs,108
 data FingerTree FingerTree3,4
@@ -199,8 +501,105 @@ data FingerTree = EmptyEmpty3,4
   | Single Single4,5
   | Deep Deep5,6
 
+./src/FixRecursionUsage.hs,48
+module FixRecursionUsage FixRecursionUsage1,2
+
 ./src/Fold.hs,22
 module Fold Fold0,1
+
+./src/FoldUsage.hs,64
+module FoldUsage FoldUsage1,2
+mss mss11,12
+mss' mss'14,15
+
+./src/GADTs.hs,1162
+module GADTs GADTs1,2
+data Expr Expr5,6
+data Expr = I I5,6
+  | B B6,7
+  | Add Add7,8
+  | Mul Mul8,9
+  | Eq Eq9,10
+eval eval11,12
+eval eval12,13
+eval2 eval216,17
+eval2 eval217,18
+eval3 eval321,22
+eval3 eval322,23
+evalIntExpr evalIntExpr37,38
+evalIntExpr evalIntExpr38,39
+evalBoolExpr evalBoolExpr42,43
+evalBoolExpr evalBoolExpr43,44
+eval4 eval448,49
+eval4 eval449,50
+applyIntOp applyIntOp54,55
+applyIntOp applyIntOp55,56
+evalIntExpr4 evalIntExpr460,61
+evalIntExpr4 evalIntExpr461,62
+evalBoolExpr4 evalBoolExpr463,64
+evalBoolExpr4 evalBoolExpr464,65
+data Expr2 Expr267,68
+data Expr2 a = I2 I267,68
+             | B2 B268,69
+             | Add2 Add269,70
+             | Mul2 Mul270,71
+             | Eq2 Eq271,72
+add add72,73
+add add73,74
+i i75,76
+i i76,77
+b b77,78
+b b78,79
+mul mul80,81
+mul mul81,82
+eval5 eval583,84
+eval5 eval585,86
+data Expr3 Expr389,90
+  I3 I390,91
+  B3 B391,92
+  Add3 Add392,93
+  Mul3 Mul393,94
+  Eq3 Eq394,95
+eval6 eval696,97
+eval6 eval697,98
+data FooInGadtClothing FooInGadtClothing103,104
+  MkFooInGadtClothing MkFooInGadtClothing104,105
+
+./src/KnightsTour.hs,343
+module KnightsTour KnightsTour1,2
+type Square Square5,6
+knightMoves knightMoves8,9
+knightMoves knightMoves9,10
+onBoard onBoard14,15
+onBoard onBoard15,16
+knightsTo knightsTo18,19
+knightsTo knightsTo19,20
+closedKnights closedKnights29,30
+closedKnights closedKnights30,31
+sortImage sortImage44,45
+sortImage sortImage45,46
+
+./src/KnuthMorrisPratt.hs,457
+module KnuthMorrisPratt KnuthMorrisPratt0,1
+data KMP KMP4,5
+data KMP a = KMPKMP4,5
+      { done done5,6
+      , next next6,7
+as `isSubstringOf`isSubstringOf9,10
+makeTable makeTable11,12
+makeTable makeTable12,13
+makeTable' makeTable'15,16
+isSubstringOf2 isSubstringOf220,21
+isSubstringOf2 isSubstringOf221,22
+isSubstringOf3 isSubstringOf325,26
+prop_isSubstringOf prop_isSubstringOf28,29
+prop_isSubstringOf prop_isSubstringOf29,30
+
+./src/LazyEvaluation.hs,89
+module LazyEvaluation LazyEvaluation0,1
+repeat' repeat'3,4
+any any7,8
+any any8,9
 
 ./src/LearnHeist.hs,34
 module LearnHeist LearnHeist1,2
@@ -298,10 +697,35 @@ retreat2 retreat2150,151
 battle battle161,162
 battle battle162,163
 
-./src/Lifting.hs,28
-module Lifting Lifting1,2
+./src/LetUsage.hs,347
+module LetUsage LetUsage0,1
+solveLogic solveLogic7,8
+solveLogic solveLogic8,9
+solveLogicW solveLogicW19,20
+solveLogicW solveLogicW20,21
+solveLogicC solveLogicC27,28
+solveLogicC solveLogicC28,29
+data Coord Coord52,53
+data Coord a b = Coord Coord52,53
+boo boo53,54
+foo foo55,56
+foo foo56,57
+foo2 foo264,65
+foo3 foo372,73
 
-./src/Lists.hs,198
+./src/Lifting.hs,100
+module Lifting Lifting1,2
+data Pair Pair3,4
+data Pair a = Pair Pair3,4
+instance instance5,6
+
+./src/ListComprehensions.hs,50
+module ListComprehensions ListComprehensions1,2
+
+./src/ListMonadUsage.hs,42
+module ListMonadUsage ListMonadUsage1,2
+
+./src/Lists.hs,244
 module Lists Lists2,3
 myUnzip myUnzip11,12
 myUnzip myUnzip12,13
@@ -311,10 +735,39 @@ dic dic25,26
 myGroup myGroup28,29
 myGroup myGroup29,30
 myGroup2 myGroup231,32
+permute permute35,36
+permute permute36,37
 
-./src/Main.hs,37
+./src/Loops.hs,164
+module Loops Loops0,1
+performOnCond performOnCond3,4
+performOnCond performOnCond4,5
+performOnCond2 performOnCond212,13
+performOnCond2 performOnCond213,14
+
+./src/Main.hs,99
 module Main Main1,2
-main main4,5
+someFunc someFunc5,6
+someFunc someFunc6,7
+main main8,9
+main main9,10
+
+./src/MappingAndroid.hs,786
+module MappingAndroid MappingAndroid2,3
+data PushMessagePushMessage4,5
+data PushNotifBuilderPushNotifBuilder5,6
+newtype TrackingId TrackingId7,8
+newtype TrackingId = TrackingId TrackingId7,8
+newtype NotificationId NotificationId8,9
+newtype NotificationId = NotificationId NotificationId8,9
+class BaseNotificationManager BaseNotificationManager10,11
+class BaseNotificationManager BaseNotificationManager10,11
+  createNotificationBuilder createNotificationBuilder11,12
+  createNotificationBuilder createNotificationBuilder12,13
+class WaitDriverApprovalNotificationManager WaitDriverApprovalNotificationManager15,16
+class WaitDriverApprovalNotificationManager WaitDriverApprovalNotificationManager15,16
+ startNotif startNotif16,17
+ startNotif startNotif17,18
 
 ./src/Maps.hs,22
 module Maps Maps1,2
@@ -324,8 +777,14 @@ is_palindrome is_palindrome2,3
 is_palindrome_rec is_palindrome_rec5,6
 isPalindrome isPalindrome10,11
 
-./src/Maybe.hs,24
-module Maybe Maybe0,1
+./src/Maybe.hs,226
+module Maybe Maybe1,2
+readMaybeInt readMaybeInt11,12
+readMaybeInt readMaybeInt12,13
+intsFromList intsFromList14,15
+intsFromList intsFromList15,16
+intsFromList2 intsFromList217,18
+intsFromList2 intsFromList218,19
 
 ./src/MonadCont.hs,323
 module MonadCont MonadCont0,1
@@ -344,8 +803,10 @@ module MonadMorphisms MonadMorphisms2,3
 type m m4,5
 type m :-> :->4,5
 
-./src/Monads.hs,40
+./src/Monads.hs,126
 module MonadsExample MonadsExample0,1
+nonIdiomaticReturn nonIdiomaticReturn3,4
+nonIdiomaticReturn nonIdiomaticReturn4,5
 
 ./src/MonadTransformers.hs,969
 module MonadTransformers MonadTransformers1,2
@@ -381,57 +842,117 @@ sequen sequen109,110
 sequen sequen110,111
 chatbot chatbot125,126
 
+./src/MonadTransformersStepByStep.hs,392
+module MonadTransformersStepByStep MonadTransformersStepByStep1,2
+type Name Name13,14
+data Exp Exp14,15
+data Exp = Lit Lit14,15
+         | Var Var15,16
+         | Plus Plus16,17
+         | Abs Abs17,18
+         | App App18,19
+data Value Value21,22
+data Value = IntVal IntVal21,22
+           | FunVal FunVal22,23
+type Env Env25,26
+eval0 eval028,29
+eval0 eval029,30
+
+./src/MyPrelude.hs,136
+module MyPrelude MyPrelude1,2
+myindex myindex5,6
+xs `myindex`myindex6,7
+myDeleteBy myDeleteBy12,13
+myDeleteBy myDeleteBy13,14
+
 ./src/NaturalTransformation.hs,56
 module NaturalTransformation NaturalTransformation2,3
 
 ./src/Operations.hs,34
 module Operations Operations1,2
 
-./src/PhantomTypes.hs,1649
-module PhantomTypes PhantomTypes5,6
-data FormData FormData9,10
-data FormData a = FormData FormData9,10
-changeType changeType11,12
-changeType changeType12,13
-data Validated Validated14,15
-data Validated = Validated Validated14,15
-data Unvalidated Unvalidated15,16
-data Unvalidated = Unvalidated Unvalidated15,16
-formData formData18,19
-formData formData19,20
-validate validate22,23
-validate validate23,24
-useData useData26,27
-useData useData27,28
-liftStringFn liftStringFn30,31
-liftStringFn liftStringFn31,32
-dataToUpper dataToUpper33,34
-dataToUpper dataToUpper34,35
-class Sanitise Sanitise37,38
-class Sanitise Sanitise37,38
-  sanitise sanitise38,39
-instance instance40,41
-newtype Distance Distance50,51
-newtype Distance a = Distance Distance50,51
-data KilometerKilometer51,52
-data MileMile52,53
-marathonDistance marathonDistance54,55
-marathonDistance marathonDistance55,56
-distanceKmToMilles distanceKmToMilles57,58
-distanceKmToMilles distanceKmToMilles58,59
-marathonDistanceInMiles marathonDistanceInMiles60,61
-marathonDistanceInMiles marathonDistanceInMiles61,62
-data LengthUnit LengthUnit64,65
-data LengthUnit = Kilometer Kilometer64,65
-data LengthUnit = Kilometer | MileMile64,65
-newtype Distance2 Distance266,67
-newtype Distance2 (a :: LengthUnit) = Distance2 Distance266,67
-marathonDistance2 marathonDistance269,70
-marathonDistance2 marathonDistance270,71
-distanceKmToMilles2 distanceKmToMilles272,73
-distanceKmToMilles2 distanceKmToMilles273,74
-marathonDistanceInMiles2 marathonDistanceInMiles275,76
-marathonDistanceInMiles2 marathonDistanceInMiles276,77
+./src/PascalTriangle.hs,80
+module PascalTriangle PascalTriangle0,1
+pascal pascal3,4
+pascal pascal4,5
+
+./src/PhantomTypes.hs,2398
+module PhantomTypes PhantomTypes7,8
+data FormData FormData11,12
+data FormData a = FormData FormData11,12
+changeType changeType13,14
+changeType changeType14,15
+data Validated Validated16,17
+data Validated = Validated Validated16,17
+data Unvalidated Unvalidated17,18
+data Unvalidated = Unvalidated Unvalidated17,18
+formData formData20,21
+formData formData21,22
+validate validate24,25
+validate validate25,26
+useData useData28,29
+useData useData29,30
+liftStringFn liftStringFn32,33
+liftStringFn liftStringFn33,34
+dataToUpper dataToUpper35,36
+dataToUpper dataToUpper36,37
+class Sanitise Sanitise39,40
+class Sanitise Sanitise39,40
+  sanitise sanitise40,41
+instance instance42,43
+newtype Distance Distance52,53
+newtype Distance a = Distance Distance52,53
+data KilometerKilometer53,54
+data MileMile54,55
+marathonDistance marathonDistance56,57
+marathonDistance marathonDistance57,58
+distanceKmToMilles distanceKmToMilles59,60
+distanceKmToMilles distanceKmToMilles60,61
+marathonDistanceInMiles marathonDistanceInMiles62,63
+marathonDistanceInMiles marathonDistanceInMiles63,64
+data LengthUnit LengthUnit66,67
+data LengthUnit = Kilometer Kilometer66,67
+data LengthUnit = Kilometer | MileMile66,67
+newtype Distance2 Distance268,69
+newtype Distance2 (a :: LengthUnit) = Distance2 Distance268,69
+marathonDistance2 marathonDistance271,72
+marathonDistance2 marathonDistance272,73
+distanceKmToMilles2 distanceKmToMilles274,75
+distanceKmToMilles2 distanceKmToMilles275,76
+marathonDistanceInMiles2 marathonDistanceInMiles277,78
+marathonDistanceInMiles2 marathonDistanceInMiles278,79
+data Distance3 Distance381,82
+  KilometerDistance KilometerDistance82,83
+  MileDistance MileDistance83,84
+marathonDistance3 marathonDistance387,88
+marathonDistance3 marathonDistance388,89
+distanceKmToMiles3 distanceKmToMiles390,91
+distanceKmToMiles3 distanceKmToMiles391,92
+marathonDistanceInMiles3 marathonDistanceInMiles393,94
+marathonDistanceInMiles3 marathonDistanceInMiles394,95
+data Message Message98,99
+data Message a = Message Message98,99
+data PlainTextPlainText99,100
+data EncryptedEncrypted100,101
+send send102,103
+send send103,104
+encrypt encrypt105,106
+encrypt encrypt106,107
+decrypt decrypt108,109
+decrypt decrypt109,110
+messageLength messageLength111,112
+messageLength messageLength112,113
+
+./src/PointFreeUsage.hs,203
+module PointFreeUsage PointFreeUsage1,2
+repli repli8,9
+repli repli9,10
+repli_pf repli_pf12,13
+repli_pf' repli_pf'13,14
+mss mss19,20
+mss' mss'23,24
+solve solve26,27
+solvePf solvePf29,30
 
 ./src/PolykindFolds.hs,40
 module PolykindFolds PolykindFolds3,4
@@ -459,14 +980,195 @@ module Primes Primes0,1
 primes primes2,3
 primes primes3,4
 
+./src/Profunctors.hs,36
+module Profunctors Profunctors1,2
+
+./src/PythagoreanTriples.hs,429
+module PythagoreanTriples PythagoreanTriples0,1
+pyth_trip_non_sym pyth_trip_non_sym3,4
+pyth_trip_non_sym pyth_trip_non_sym4,5
+pyth_trip_non_sym2 pyth_trip_non_sym27,8
+pyth_trip_non_sym2 pyth_trip_non_sym28,9
+isSquare isSquare10,11
+branchTriple branchTriple14,15
+primitiveTriples primitiveTriples21,22
+allTriples allTriples25,26
+usage usage31,32
+primitiveTriples' primitiveTriples'34,35
+usage' usage'38,39
+
 ./src/quickcheck/Examples.hs,75
 module Quickcheck.Examples Quickcheck.Examples2,3
 runTests runTests7,8
+
+./src/RabinKarp.hs,32
+module RabinKarp RabinKarp2,3
+
+./src/RecordWildcards.hs,562
+module RecordWildcards RecordWildcards3,4
+data Worker Worker7,8
+data Worker = WorkerWorker7,8
+    workerName workerName9,10
+    workerPosition workerPosition10,11
+    workerFirstYear workerFirstYear11,12
+instance instance21,22
+update update34,35
+update update35,36
+assignPosition assignPosition40,41
+assignFirstYear assignFirstYear41,42
+data C C44,45
+data C = C C44,45
+data C = C { a a44,45
+data C = C { a :: Int, b b44,45
+data C = C { a :: Int, b :: Int, c c44,45
+data C = C { a :: Int, b :: Int, c :: Int, d d44,45
+f f46,47
 
 ./src/Sampling.hs,60
 module Sampling Sampling1,2
 type R R7,8
 type R a a7,8
+
+./src/Scans.hs,409
+module Scans Scans0,1
+sumList' sumList'5,6
+sumList' sumList'6,7
+sumList'' sumList''8,9
+sumList'' sumList''9,10
+sumListfoldl sumListfoldl12,13
+sumListfoldl sumListfoldl13,14
+sumListfoldl_pf sumListfoldl_pf17,18
+sumListfoldl_pf sumListfoldl_pf18,19
+sumList_eleg sumList_eleg22,23
+sumList_eleg sumList_eleg23,24
+sumList_eleg_pf sumList_eleg_pf26,27
+sumList_eleg_pf sumList_eleg_pf27,28
+
+./src/ScanUsage.hs,32
+module ScanUsage ScanUsage1,2
+
+./src/Screencast1.hs,545
+module Screencast1 Screencast11,2
+data Bool Bool8,9
+data Bool = True True8,9
+data Bool = True | FalseFalse8,9
+data Tree Tree11,12
+data Tree a = Tip Tip11,12
+data Tree a = Tip | Node Node11,12
+data Car Car26,27
+data Car a b c = Car Car26,27
+                     company company27,28
+                     model model28,29
+                     year year29,30
+type Vect2d Vect2d34,35
+data Obj2d Obj2d39,40
+  Rect Rect41,42
+  Translate Translate42,43
+  Rect Rect41,42
+  Translate Translate42,43
+depth depth44,45
+
+./src/Screencast2.hs,289
+module Screencast2 Screencast21,2
+repli repli7,8
+find_greatest_sum_subarrays find_greatest_sum_subarrays16,17
+isPandigital isPandigital28,29
+cm cm29,30
+pandigitals pandigitals30,31
+solve38 solve3831,32
+digitAt digitAt41,42
+positions positions43,44
+solve40 solve4045,46
+
+./src/SearchAlgorithns.hs,282
+module SearchAlgorithms SearchAlgorithms1,2
+data Tree Tree3,4
+data Tree a = Empty Empty3,4
+data Tree a = Empty | Node Node3,4
+traverseDfs traverseDfs5,6
+traverseDfs traverseDfs6,7
+traverseBfs traverseBfs9,10
+traverseBfs traverseBfs10,11
+createTree createTree20,21
+
+./src/SieveOfEratosthenes.hs,173
+module SieveOfErastothenes SieveOfErastothenes0,1
+primesTo primesTo14,15
+primesUpTo primesUpTo19,20
+primesUpTo primesUpTo20,21
+sieve sieve22,23
+sieve sieve23,24
+
+./src/SmartConstructors.hs,2169
+module SmartConstructors(SmartConstructors2,3
+data Resistor Resistor17,18
+data Resistor = Metal Metal17,18
+              | Ceramic Ceramic18,19
+type Bands Bands21,22
+metalResistor metalResistor25,26
+metalResistor metalResistor26,27
+metalResistor2 metalResistor230,31
+metalResistor2 metalResistor231,32
+data Z Z34,35
+data Z = ZZ34,35
+data S S35,36
+data S a = S S35,36
+class Card Card37,38
+class Card Card37,38
+class Card size => InBounds InBounds43,44
+class Card size => InBounds InBounds43,44
+data Resistor' Resistor'53,54
+data Resistor' size = Resistor' Resistor'53,54
+resistor resistor55,56
+resistor resistor56,57
+d0 d058,59
+d3 d359,60
+d4 d460,61
+d6 d661,62
+newtype MetalResistor' MetalResistor'64,65
+newtype MetalResistor' = Metal' Metal'64,65
+newtype CeramicResistor' CeramicResistor'65,66
+newtype CeramicResistor' = Ceramic' Ceramic'65,66
+newtype Email Email69,70
+newtype Email = MkEmail MkEmail69,70
+mkEmail mkEmail72,73
+mkEmail mkEmail73,74
+data Schedule Schedule77,78
+data Schedule = Schedule Schedule77,78
+data Schedule = Schedule { startDate startDate77,78
+    , endDate endDate78,79
+mkSchedule mkSchedule81,82
+mkSchedule mkSchedule82,83
+mkSchedule' mkSchedule'85,86
+mkSchedule' mkSchedule'86,87
+data MyType MyType93,94
+data MyType = MT MT93,94
+data MyType = MT { x x93,94
+data MyType = MT { x :: Int, y y93,94
+data MyType = MT { x :: Int, y :: Int, z z93,94
+createMyType createMyType95,96
+createMyType createMyType96,97
+data MyType' MyType'99,100
+data MyType' = MT' MT'99,100
+data MyType' = MT' { x' x'99,100
+data MyType' = MT' { x' :: Int, y' y'99,100
+data MyType' = MT' { x' :: Int, y' :: Int, z' z'99,100
+createMyType' createMyType'101,102
+createMyType' createMyType'102,103
+data Name Name108,109
+data Name = Name Name108,109
+nameFromString nameFromString111,112
+nameFromString nameFromString112,113
+stringFromName stringFromName116,117
+stringFromName stringFromName117,118
+nameFromString' nameFromString'120,121
+nameFromString' nameFromString'121,122
+askUserForName askUserForName127,128
+askUserForNameaskUserForName128,129
+
+./src/Squares.hs,51
+module Squares Squares1,2
+isSquare isSquare3,4
 
 ./src/StateMonad.hs,433
 module StateMonad StateMonad1,2
@@ -490,6 +1192,22 @@ nextSeq nextSeq51,52
 nextSeq nextSeq52,53
 next next58,59
 next next59,60
+
+./src/StateMonadUsage.hs,209
+module StateMonadUsage StateMonadUsage1,2
+len2State len2State8,9
+len2State len2State9,10
+tick tick16,17
+tick tick17,18
+plusOne plusOne21,22
+plusOne plusOne22,23
+plus plus24,25
+plus plus25,26
+
+./src/Talk.hs,56
+module Talk Talk1,2
+qsort qsort4,5
+qsort qsort5,6
 
 ./src/TemplateHaskell/TemplateHaskell.hs,593
 module TemplateHaskell TemplateHaskell2,3
@@ -524,6 +1242,87 @@ printf printf79,80
 module TemplateHaskellSplices TemplateHaskellSplices2,3
 explPrintf explPrintf6,7
 
+./src/Todolist.hs,223
+module Todolist Todolist1,2
+putTodo putTodo3,4
+putTodo putTodo4,5
+prompt prompt6,7
+prompt prompt7,8
+interpret interpret14,15
+interpret interpret15,16
+delete delete27,28
+delete delete28,29
+main main34,35
+
+./src/TossCoins.hs,330
+module TossCoins TossCoins1,2
+tossCoin3 tossCoin310,11
+tossCoin3 tossCoin311,12
+map3Tuples map3Tuples20,21
+map3Tuples map3Tuples21,22
+tossCoin3_2 tossCoin3_223,24
+tossCoin3_2 tossCoin3_224,25
+tossCoin3_3 tossCoin3_333,34
+tossCoin3_3 tossCoin3_334,35
+tossCoin3_4 tossCoin3_441,42
+tossCoin3_4 tossCoin3_442,43
+
+./src/TraversableUsage.hs,61
+module TraversableUsage TraversableUsage1,2
+half half3,4
+
+./src/TrivialMonad.hs,191
+module TrivialMonad TrivialMonad1,2
+data W W6,7
+data W a = W W6,7
+return' return'8,9
+return' return'9,10
+fmap' fmap'12,13
+fmap' fmap'13,14
+bind' bind'17,18
+bind' bind'18,19
+
+./src/TypedHoles.hs,766
+module TypedHoles TypedHoles4,5
+data Free Free10,11
+data Free f a = Pure Pure10,11
+data Free f a = Pure a | Free Free10,11
+id' id'24,25
+id' id'26,27
+prop_identity prop_identity28,29
+const' const'30,31
+const' const'31,32
+prop_const prop_const33,34
+apply apply35,36
+apply apply36,37
+prop_app prop_app38,39
+compose compose41,42
+compose compose43,44
+prop_compose prop_compose45,46
+xor xor50,51
+xor xor51,52
+prop_xor prop_xor56,57
+not' not'59,60
+not' not'60,61
+prop_bool_not_inequality prop_bool_not_inequality63,64
+prop_bool_not_involutive prop_bool_not_involutive64,65
+or or66,67
+or or67,68
+and and72,73
+and and73,74
+prop_bool_deMorgan_1 prop_bool_deMorgan_179,80
+prop_bool_deMorgan_2 prop_bool_deMorgan_280,81
+
+./src/TypeLevelPgm.hs,208
+module TypeLevelPgm TypeLevelPgm4,5
+data ZZ8,9
+data S S9,10
+class Plus Plus14,15
+type family family19,20
+type instance instance20,21
+type instance Plus2 Plus220,21
+type instance instance21,22
+
 ./src/Types.hs,283
 module Types Types0,1
 type Point Point2,3
@@ -536,6 +1335,9 @@ class Shape Shape6,7
   rotate rotate7,8
   simple simple8,9
 instance instance11,12
+
+./src/Vectors.hs,28
+module Vectors Vectors1,2
 
 ./src/Writer.hs,258
 module Writer Writer3,4
@@ -552,12 +1354,7 @@ tellSnd tellSnd57,58
 fact6 fact659,60
 fact6 fact660,61
 
-./TypeLevelPgm.hs,208
-module TypeLevelPgm TypeLevelPgm4,5
-data ZZ8,9
-data S S9,10
-class Plus Plus14,15
-type family family19,20
-type instance instance20,21
-type instance Plus2 Plus220,21
-type instance instance21,22
+./src/Writer2.hs,74
+module Writer2 Writer21,2
+deleteOn deleteOn5,6
+deleteOn deleteOn6,7
