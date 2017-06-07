@@ -1,7 +1,9 @@
 module QuickSelect where
 
-import qualified Data.List as L 
+import qualified Data.List as L
 import qualified Data.Maybe as M
+
+import Test.QuickCheck
 
 groupIn :: Int -> [a] -> [[a]]
 groupIn _ [] = []
@@ -38,3 +40,9 @@ select n xs
           pivotInd = M.fromMaybe noNothing $ L.elemIndex pivot pxs
           pxs      = partition pivot xs
           slice from to = take (to - from + 1) . drop from
+
+
+
+prop_select :: Int -> NonEmptyList Int -> Bool
+prop_select position (NonEmpty l) = let position' = position `mod` length l in
+                        (L.sort l !! position') == select position' l
