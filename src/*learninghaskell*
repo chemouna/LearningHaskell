@@ -1,0 +1,32 @@
+λ> 
+λ> 
+λ> 
+λ> 
+λ> 
+λ> 
+src/TypedHoles.hs:80:37: Ambiguous occurrence ‘and’ …
+    It could refer to either ‘TypedHoles.and’,
+                             defined at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:74:1
+                          or ‘Prelude.and’,
+                             imported from ‘Prelude’ at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:5:8-17
+                             (and originally defined in ‘Data.Foldable’)
+src/TypedHoles.hs:80:61: Ambiguous occurrence ‘or’ …
+    It could refer to either ‘TypedHoles.or’,
+                             defined at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:68:1
+                          or ‘Prelude.or’,
+                             imported from ‘Prelude’ at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:5:8-17
+                             (and originally defined in ‘Data.Foldable’)
+src/TypedHoles.hs:81:37: Ambiguous occurrence ‘or’ …
+    It could refer to either ‘TypedHoles.or’,
+                             defined at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:68:1
+                          or ‘Prelude.or’,
+                             imported from ‘Prelude’ at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:5:8-17
+                             (and originally defined in ‘Data.Foldable’)
+src/TypedHoles.hs:81:60: Ambiguous occurrence ‘and’ …
+    It could refer to either ‘TypedHoles.and’,
+                             defined at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:74:1
+                          or ‘Prelude.and’,
+                             imported from ‘Prelude’ at /Users/m.cheikhna/Documents/repos/mine/LearningHaskell/src/TypedHoles.hs:5:8-17
+                             (and originally defined in ‘Data.Foldable’)
+Compilation failed.
+λ> 

@@ -6,7 +6,7 @@ main main2,3
 module ApplicativePaper ApplicativePaper1,2
 
 ./src/ApplicativeUsage.hs,46
-module ApplicativeUsage ApplicativeUsage1,2
+module ApplicativeUsage ApplicativeUsage0,1
 
 ./src/AvoidPartialFns.hs,44
 module AvoidPartialFns AvoidPartialFns1,2
@@ -1000,6 +1000,23 @@ usage' usage'38,39
 ./src/quickcheck/Examples.hs,75
 module Quickcheck.Examples Quickcheck.Examples2,3
 runTests runTests7,8
+
+./src/quickselect.hs,430
+module QuickSelect QuickSelect0,1
+groupIn groupIn7,8
+groupIn groupIn8,9
+medianOfMedians medianOfMedians12,13
+medianOfMedians medianOfMedians13,14
+noNothing noNothing20,21
+noNothing noNothing21,22
+outOfBounds outOfBounds23,24
+outOfBounds outOfBounds24,25
+partition partition26,27
+partition partition27,28
+select select30,31
+select select31,32
+prop_select prop_select45,46
+prop_select prop_select46,47
 
 ./src/RabinKarp.hs,32
 module RabinKarp RabinKarp2,3
