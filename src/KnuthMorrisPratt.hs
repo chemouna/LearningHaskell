@@ -30,3 +30,4 @@ prop_isSubstringOf :: [Bool] -> [Bool] -> Bool
 prop_isSubstringOf as bs = (as `isSubstringOf` bs) == (as `isSubstringOf2` bs)
 
 -- http://okmij.org/ftp/Haskell/KMP-deptype.hs
+
