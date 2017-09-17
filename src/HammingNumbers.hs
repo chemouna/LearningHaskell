@@ -42,4 +42,7 @@ merge a@(x:xs) b@(y:ys) | x < y = x : merge xs b
 
 
 prop_def_hamming_same_result n = take n hamming == take n hamming2
+prop_def_hamming_million1 = hamming !! (1000000-1) == hamming2 !! (1000000-1)
+
 prop_def_hamming_same_result2 n = take n hamming == take n hamming4
+prop_def_hamming_million2 = hamming !! (1000000-1) == hamming4 !! (1000000-1)
