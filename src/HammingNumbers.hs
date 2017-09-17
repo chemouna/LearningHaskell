@@ -1,5 +1,3 @@
-
-
 module HammingNumbers where
 
 import Data.List (sort, nub)
@@ -33,5 +31,15 @@ main2 = do
   print $ hamming2 !! (1000000-1)
 
 
-prop_def_hamming_same_result n = take n hamming == take n hamming2 
+-- better version were it avoid regenerating duplicate values
+hamming4 = 1 : foldr u [] [2,3,5] where
+  u n s = r where
+             r = merge s (map (n*) (1:r))
 
+merge [] b = b
+merge a@(x:xs) b@(y:ys) | x < y = x : merge xs b
+                        | otherwise = y : merge a ys
+
+
+prop_def_hamming_same_result n = take n hamming == take n hamming2
+prop_def_hamming_same_result2 n = take n hamming == take n hamming4
