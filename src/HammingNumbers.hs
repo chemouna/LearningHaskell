@@ -5,6 +5,8 @@ module HammingNumbers where
 import Data.List (sort, nub)
 import Data.Function (fix)
 import Control.Monad
+import Test.QuickCheck
+import Test.QuickCheck.All
 
 hamming = 1 : map (2*) hamming `union` map (3*) hamming `union` map (5*) hamming
 
@@ -31,5 +33,5 @@ main2 = do
   print $ hamming2 !! (1000000-1)
 
 
-
+prop_def_hamming_same_result n = take n hamming == take n hamming2 
 
