@@ -2,6 +2,10 @@
 
 module HammingNumbers where
 
+import Data.List (sort, nub)
+import Data.Function (fix)
+import Control.Monad
+
 hamming = 1 : map (2*) hamming `union` map (3*) hamming `union` map (5*) hamming
 
 union a@(x:xs) b@(y:ys) = case compare x y of
@@ -9,8 +13,23 @@ union a@(x:xs) b@(y:ys) = case compare x y of
   EQ -> x : union xs ys
   GT -> y : union a ys
 
+-- point free version
+hamming2 = fix ((1 :) . ap (union . ap (union . map (2 *)) (map (3 *))) (map (5 *)))
+
+
+-- this one doesnt work yet
+-- hamming3 = sort $ [1] ++ (sort . nub $ concatMap (\x -> [x*2, x*3, x*5]) hamming3)
+
 main = do
   print $ take 20 hamming
   print  (hamming !! (1691-1), hamming !! (1692-1))
   print $ hamming !! (1000000-1)
+
+main2 = do
+  print $ take 20 hamming2
+  print  (hamming2 !! (1691-1), hamming2 !! (1692-1))
+  print $ hamming2 !! (1000000-1)
+
+
+
 
