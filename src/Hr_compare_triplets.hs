@@ -6,6 +6,7 @@ import Control.Monad
 import System.IO
 import Data.List
 
+
 -- res ([Int], [Int]) = (AlicePoints, BobPoints)
 -- compareTriplets :: (Int, Int, Int) -> (Int, Int, Int) -> ([Int], [Int])
 -- compareTriplets  (a0, a1, a2) (b0, b1, b2)
@@ -35,6 +36,13 @@ cmpPair x y = if x < y then ([1], []) else if x > y then ([], [1]) else ([], [])
 mapTriplets :: (Int, Int, Int) -> (Int, Int, Int) -> [(Int, Int)]
 mapTriplets (a0, a1, a2) (b0, b1, b2) = [(a0, b0), (a1, b1), (a2, b2)]
 
+printElements :: [Int] -> IO()
+printElements [] = return ()
+printElements [x] = do putStr $ show x
+printElements (x:xs) = do putStr $ show x
+                          putStr " "
+                          printElements xs
+
 main :: IO ()
 main = do
     a0_temp <- getLine
@@ -47,6 +55,7 @@ main = do
     let b0 = read $ b0_t !! 0 :: Int
     let b1 = read $ b0_t !! 1 :: Int
     let b2 = read $ b0_t !! 2 :: Int
-    print $ intercalate " " $ map show $ concat (map (uncurry (++)) (map (uncurry cmpPair) ( mapTriplets (a0, a1, a2) (b0, b1, b2))))
+    printElements $ concat (map (uncurry (++)) (map (uncurry cmpPair) ( mapTriplets (a0, a1, a2) (b0, b1, b2))))
+
 
 --  compareTriplets (a0, a1, a2) (b0, b1, b2)
