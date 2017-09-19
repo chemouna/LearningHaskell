@@ -11,12 +11,3 @@ main = do
     ar_temp <- getLine
     let ar = map read $ words ar_temp :: [Int]
     print $ foldr (+) 0 ar
-
-getMultipleLines :: Int -> IO [String]
-getMultipleLines n
-    | n <= 0 = return []
-    | otherwise = do
-        x <- getLine
-        xs <- getMultipleLines (n-1)
-        let ret = (x:xs)
-        return ret
