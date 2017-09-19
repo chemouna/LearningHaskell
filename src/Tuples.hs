@@ -19,3 +19,6 @@ solution = map (helper . unzip) . groupBy (\ x y -> fst x == fst y) . sort
 
 solution' :: [(String, Int)] -> [(String, Int)]
 solution' = M.toList . M.fromListWith (+)
+
+foo :: (Int, Int) -> ([Int], [Int])
+foo (x, y) = if x < y then ([1], []) else if x > y then ([], [1]) else ([], [])
