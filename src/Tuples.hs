@@ -1,5 +1,3 @@
-
-
 module Tuples where
 
 import Data.List (groupBy, sort)
@@ -22,3 +20,10 @@ solution' = M.toList . M.fromListWith (+)
 
 foo :: (Int, Int) -> ([Int], [Int])
 foo (x, y) = if x < y then ([1], []) else if x > y then ([], [1]) else ([], [])
+
+
+{-
+lstPairsConcat :: [([Int], [Int])] -> ([Int], [Int])
+lstPairsConcat xs = map (helper . unzip) xs
+  where helper (vs1, vs2) = (sum vs1, sum vs2)
+-}
