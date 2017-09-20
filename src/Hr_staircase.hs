@@ -12,6 +12,8 @@ import System.IO
 ####
 -}
 
+solution :: Int -> [String]
+solution n = 
 
 main :: IO ()
 main = do

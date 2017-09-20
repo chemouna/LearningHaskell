@@ -90,6 +90,8 @@ executable LearningHaskell
                      , transformers >= 0.4.2.0
                      , vector >= 0.11.0.0
                      , tuple
+                     , hspec
+                       
   -- Directories containing source files.
   hs-source-dirs:      src
   
