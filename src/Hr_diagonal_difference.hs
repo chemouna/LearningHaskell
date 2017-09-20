@@ -12,6 +12,13 @@ solution2 list n = abs (p1 - p2)
     p = foldl (\ acc@(x', y') (x,y) -> (x' + x, y' + y)) (0,0) pairs
     pairs = zipWith3 (\ x y z -> (x !! y, x !! z)) list [0..n-1]  (enumFromThenTo (n-1) 1 0)
 
+
+solution3 :: [[Int]] -> Int
+solution3 matrix = abs $ foldl rowDiff 0 indexedRows
+  where rowDiff acc (i, row) = acc + (row !! i) - (row !! (n-1-i))
+        n = length matrix
+        indexedRows = zip [0..] matrix
+
 getMultipleLines :: Int -> IO [String]
 getMultipleLines n
     | n <= 0 = return []
@@ -29,4 +36,4 @@ main = do
     a_temp <- getMultipleLines n
     let a = map ( map ( read :: String -> Int ) . words ) a_temp
     print a
-    print $ solution2 a n
+    print $ solution3 a

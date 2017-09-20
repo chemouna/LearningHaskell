@@ -39,3 +39,4 @@ permute [] = [[]]
 
 permute xs = concatMap (\x -> map (x:) (permute (delete x xs))) xs
 
+-- mapAccumL
