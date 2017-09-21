@@ -29,6 +29,15 @@ main = do
     let n = read n_temp :: Int
     mapM_ putStrLn (solution n)
 
+-- Solution 2
+solution2 :: Int -> [String]
+solution2 n = map (\i -> replicate (n - i) ' ' ++ replicate i '#') [1..n]
+
+main2 :: IO ()
+main2 = readLn >>= mapM_ putStrLn . solution2
+
+--
+
 spec :: Spec
 spec =
   describe "Solution to Staircase problem" $ do
