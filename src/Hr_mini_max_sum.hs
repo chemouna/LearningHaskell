@@ -18,7 +18,7 @@ main :: IO ()
 main = do
     arr_temp <- getLine
     let arr = map read $ words arr_temp :: [Int]
-    putStr ( unwords (map show (uncurry (\x y -> [x, y]) (10,14))))
+    putStr ( unwords (map show (uncurry (\x y -> [x, y]) (solution arr))))
 
 getMultipleLines :: Int -> IO [String]
 getMultipleLines n
