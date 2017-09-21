@@ -37,6 +37,6 @@ spec =
     it "Special case for n = 1" $ do
       solution 1 `shouldBe` ["#"]
     it "Case n = 2" $ do
-      solution 2 `shouldBe` ["#", "##"]
+      solution 2 `shouldBe` [" #", "##"]
     it "Case n = 4" $ do
-      solution 4 `shouldBe` ["#", "##", "###", "####"]
+      solution 4 `shouldBe` ["   #", "  ##", " ###", "####"]
