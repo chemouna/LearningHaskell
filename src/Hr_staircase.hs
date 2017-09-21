@@ -4,7 +4,7 @@ import Control.Applicative
 import Control.Monad
 import System.IO
 import Test.Hspec
-
+import Data.List
 
 {-
    #
@@ -23,12 +23,11 @@ solution :: Int -> [String]
 solution 0 = []
 solution n = pad ' ' (map (\x -> take x (repeat '#')) [1..n])
 
-
 main :: IO ()
 main = do
     n_temp <- getLine
     let n = read n_temp :: Int
-    mapM_ print (solution n)
+    mapM_ putStrLn (solution n)
 
 spec :: Spec
 spec =
