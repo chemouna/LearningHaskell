@@ -20,6 +20,10 @@ main = do
     let arr = map read $ words arr_temp :: [Int]
     putStr ( unwords (map show (uncurry (\x y -> [x, y]) (solution arr))))
 
+-- Solution 2
+main2 = fmap (map (\x -> read x :: Int).words) getLine >>= (putStr.unwords.(map show).(\l -> [sum l - maximum l, sum l - minimum l]))
+
+-- S
 getMultipleLines :: Int -> IO [String]
 getMultipleLines n
     | n <= 0 = return []
