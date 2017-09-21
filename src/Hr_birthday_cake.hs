@@ -20,3 +20,4 @@ main = do
     ar_temp <- getLine
     let ar = map read $ words ar_temp :: [Int]
     print $ solution ar
+
