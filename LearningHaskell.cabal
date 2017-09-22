@@ -91,6 +91,7 @@ executable LearningHaskell
                      , vector >= 0.11.0.0
                      , tuple
                      , hspec
+                     , primes
                        
   -- Directories containing source files.
   hs-source-dirs:      src
