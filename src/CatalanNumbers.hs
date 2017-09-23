@@ -16,3 +16,4 @@ pairs xs = [(x, y) | x <- xs, y <- xs]
 
 cats1 = map (\n -> product [n+2..2*n] `div` product [1..n]) [0..]
 
+cats2 = 1 : map (\n -> sum $ zipWith (*) (reverse (take n cats2)) cats2) [1..]
