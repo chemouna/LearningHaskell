@@ -5,7 +5,7 @@ import Data.Bool
 import Data.Numbers.Primes
 
 -- plotting set {{i OR j, i AND j) | i <- [0..n], j <- [0..n]}}
-f n = [(i .|. j, i .&. j) | i <- [0..n], j <- [0..n]]
+f1 n = [(i .|. j, i .&. j) | i <- [0..n], j <- [0..n]]
 plot n = unlines [[bool ' ' '*' $ (r, c) `elem` f n |
   c <- [0..n]] | r <- [0..n]]
 
@@ -44,3 +44,12 @@ choose' n k = product $ map (\p -> p^f p n k) $ takeWhile (<= n) primes
 
 main'' = print $ choose' 1000000 353000
 
+--
+
+sierpinski 0 = ["*"]
+sierpinski n = map ((space ++) . (++ space)) down ++
+               map (unwords . replicate 2) down
+    where down = sierpinski (n - 1)
+          space = replicate (2 ^ (n - 1)) ' '
+
+main''' = mapM_ putStrLn $ sierpinski 4
