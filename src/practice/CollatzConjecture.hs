@@ -1,6 +1,9 @@
 module CollatzConjecture where
 
-import Data.List
+import Data.List (map, unfoldr)
+import Test.QuickCheck.All
+import Test.QuickCheck
+import Data.Array
 
 threePlus1 :: Int -> Int -> Int
 threePlus1 i j = maximum $ map (length . collatzSequence) [i..j]
@@ -23,9 +26,55 @@ collatz n
 threePlus1_sol2 i j = maximum $ map (length . collatzSequence2) [i..j]
 
 collatzSequence2 :: Int -> [Int]
-collatzSequence2 = unfoldr collatz2 
+collatzSequence2 = unfoldr collatz2
   where collatz2 0 = Nothing
         collatz2 1 = Just (1, 0)
         collatz2 x
           | odd x = Just (x, 3 * x + 1)
           | otherwise = Just (x, x `div` 2)
+
+
+collatzProp :: Int -> Bool
+collatzProp(1) = True
+collatzProp(n) = collatzProp(collatz n)
+
+-- generator that only yields positive values so
+-- that we don't generate useless negative values
+
+positives :: Gen Int
+positives = do
+  x <- arbitrary -- pick an arbitrary int
+  -- make it positive
+  if(x == 0)
+    then return 1
+  else if (x < 0)
+    then return (-x)
+  else
+    return x
+
+-- verboseCheck (forAll positives collatzProp)
+
+
+-- Haskell solution with caching
+cacheSize :: Int
+cacheSize = 65536
+
+table :: Array Int Int
+table = listArray (1, cacheSize) (1 : map go [2..cacheSize])
+  where
+    go n
+      | even n = 1 + lookupCollatz (n `div` 2)
+      | otherwise = 1 + lookupCollatz (3 * n + 1)
+
+lookupCollatz :: Int -> Int
+lookupCollatz n
+  | n < cacheSize = table ! n
+  | even n = 1 + lookupCollatz (n `div` 2)
+  | otherwise = 1 + lookupCollatz (3 * n + 1)
+
+
+collatzProp2 :: Int -> Bool
+collatzProp2 1 = True
+collatzProp2 n = collatzProp (lookupCollatz n)
+
+--  verboseCheck (forAll positives collatzProp2)
