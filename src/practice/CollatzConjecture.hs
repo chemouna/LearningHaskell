@@ -4,6 +4,8 @@ import Data.List (map, unfoldr)
 import Test.QuickCheck.All
 import Test.QuickCheck
 import Data.Array
+import qualified Data.MemoTrie as Mt
+import qualified Data.MemoCombinators as Memo
 
 threePlus1 :: Int -> Int -> Int
 threePlus1 i j = maximum $ map (length . collatzSequence) [i..j]
@@ -78,3 +80,20 @@ collatzProp2 1 = True
 collatzProp2 n = collatzProp (lookupCollatz n)
 
 --  verboseCheck (forAll positives collatzProp2)
+
+
+-- Using MemoCombinators for caching
+
+collatzMemo :: Int -> Int
+collatzMemo = Memo.integral go
+  where
+    go 1 = 1
+    go n
+      | even n = 1 + collatzMemo (n `div` 2)
+      | otherwise = 1 + collatzMemo (3 * n + 1)
+
+collatzProp3 :: Int -> Bool
+collatzProp3 1 = True
+collatzProp3 n = collatzProp (collatzMemo n)
+
+-- verboseCheck (forAll positives collatzProp3)

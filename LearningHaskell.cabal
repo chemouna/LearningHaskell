@@ -92,7 +92,10 @@ executable LearningHaskell
                      , tuple
                      , hspec
                      , primes
-                       
+                     , data-memocombinators >= 0.5.1
+                     , MemoTrie >= 0.6.4
+
+
   -- Directories containing source files.
   hs-source-dirs:      src
   
