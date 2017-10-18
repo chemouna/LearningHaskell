@@ -1,25 +1,8 @@
 
 module TurretDefense where
 
-
 import Data.List
 import Data.Maybe
-
--- foldl (0, 0, 0) (\(x,y,t0) (x',y',t1) -> (x, y, t0 + (abs(x'-x) + abs(y'-y)))) (zip3 xs ys t)
-
--- map abs $ zipWith (-) (tail ys) ys
-
--- map abs $ zipWith (-) (tail xs) xs
-
--- zipWith (+) timeNeed (init ts)
-
--- let timeNeed = zipWith (+) diffX diffY
-
--- let diffX = map abs $ zipWith (-) (tail xs) xs
-
--- findIndex (\(x, y) -> x > y) $ zip tn ts
-
---  let tn = 0:zipWith (+) timeNeed (init ts)
 
 turretDefense :: [Int] -> [Int] -> [Int] -> Int
 turretDefense xs ys ts = fromMaybe (-1) (findIndex (\(x, y) -> x > y) $ zip tn ts)
@@ -32,4 +15,8 @@ turretDefense xs ys ts = fromMaybe (-1) (findIndex (\(x, y) -> x > y) $ zip tn t
 
 -- turretDefense [3,5,6] [7,5,6][11,15,16]
 
-  
+-- turretDefense [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32]
+
+
+-- turretDefense [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,31]
+
