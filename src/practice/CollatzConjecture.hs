@@ -97,3 +97,4 @@ collatzProp3 1 = True
 collatzProp3 n = collatzProp (collatzMemo n)
 
 -- verboseCheck (forAll positives collatzProp3)
+ 
