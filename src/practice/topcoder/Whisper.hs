@@ -25,10 +25,12 @@ findWhom us m
   | otherwise = maximumBy (comparing length) candidates
   where
     candidates = intersectBy (\x y -> strToLower x == strToLower y) ll us
-    s = splitOn " " m
+    s = filter (\x -> strEndsWith x " ") $ splitOnKeepR " " m
     r = tail $ subsequences s
     z = filter (\(x:xs) -> x == head s) r
     ll = map (concat . intersperse " ") z
+
+splitOnKeepR delim s = split (keepDelimsR $ oneOf delim) s
 
 diffLowerCase :: [Char] -> [Char] -> [Char]
 diffLowerCase =  foldl (flip deleteByLower)
@@ -60,7 +62,7 @@ main = hspec $ do
       toWhom ["lbackstrom"] "/msg lbackstrom" `shouldBe` "user is not logged in"
 
     it "Case 6" $ do
-      toWhom ["me"] "/msg me hi" `shouldBe` "user is not logged in"
+      toWhom ["me"] "/msg me  hi" `shouldBe` "user is not logged in"
 
     it "Case 7" $ do
       toWhom ["abc"] " /msg abc note the leading space" `shouldBe` "not a whisper"
