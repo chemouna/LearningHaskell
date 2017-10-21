@@ -25,7 +25,7 @@ findWhom us m
   | otherwise = maximumBy (comparing length) candidates
   where
     candidates = intersectBy (\x y -> strToLower x == strToLower y) ll us
-    s = filter (\x -> strEndsWith x " ") $ splitOnKeepR " " m
+    s = map init $ filter (\x -> strEndsWith x " ") $ splitOnKeepR " " m
     r = tail $ subsequences s
     z = filter (\(x:xs) -> x == head s) r
     ll = map (concat . intersperse " ") z
