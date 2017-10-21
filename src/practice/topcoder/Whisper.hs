@@ -18,8 +18,11 @@ toWhom us m =
     msg = "/msg "
 
 findWhom :: [String] -> String -> String
-findWhom us m = maximumBy (comparing length) $ ll `intersect` us
+findWhom us m
+  | null candidates = "user is not logged in"
+  | otherwise = maximumBy (comparing length) candidates
   where
+    candidates = ll `intersect` us
     s = splitOn " " m
     r = tail $ subsequences s
     z = filter (\(x:xs) -> x == head s) r
@@ -36,8 +39,6 @@ main = hspec $ do
 
     it "Case 3" $ do
       toWhom ["writer"] "writer hi" `shouldBe` "John Doe"
-
-
 
     it "Case 4" $ do
       toWhom ["tester"] "/msg testerTwo you there" `shouldBe` "user is not logged in"
