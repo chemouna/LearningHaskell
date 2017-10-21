@@ -24,7 +24,7 @@ findWhom us m
   | null candidates = "user is not logged in"
   | otherwise = maximumBy (comparing length) candidates
   where
-    candidates = intersectBy (\x y -> strToLower x == strToLower y) ll us
+    candidates = intersectBy (\x y -> strToLower x == strToLower y) us ll
     s = map init $ filter (\x -> strEndsWith x " ") $ splitOnKeepR " " m
     r = tail $ subsequences s
     z = filter (\(x:xs) -> x == head s) r
