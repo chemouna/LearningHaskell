@@ -9,8 +9,6 @@ import Data.Ord
 import Test.Hspec
 import Data.Char
 
--- String toWhom(String[] usernames, String typed)
-
 toWhom :: [String] -> String -> String
 toWhom us m =
   if strStartsWith ml "/msg " then findWhom us (diffLowerCase m msg)
@@ -25,12 +23,18 @@ findWhom us m
   | otherwise = maximumBy (comparing length) candidates
   where
     candidates = intersectBy (\x y -> strToLower x == strToLower y) us ll
-    s = map init $ filter (\x -> strEndsWith x " ") $ splitOnKeepR " " m
+    s = map init $ filter endsWithOneSpace $ splitOnKeepR " " m
     r = tail $ subsequences s
     z = filter (\(x:xs) -> x == head s) r
     ll = map (concat . intersperse " ") z
 
-splitOnKeepR delim s = split (keepDelimsR $ oneOf delim) s
+endsWithOneSpace :: String -> Bool
+endsWithOneSpace s
+  | length s == 0 = False
+  | length s >= 2 && last s  == ' ' && last (init s) == ' ' = False
+  | otherwise = True
+
+splitOnKeepR delims s = split (keepDelimsR $ oneOf delims) s
 
 diffLowerCase :: [Char] -> [Char] -> [Char]
 diffLowerCase =  foldl (flip deleteByLower)
@@ -62,7 +66,7 @@ main = hspec $ do
       toWhom ["lbackstrom"] "/msg lbackstrom" `shouldBe` "user is not logged in"
 
     it "Case 6" $ do
-      toWhom ["me"] "/msg me  hi" `shouldBe` "user is not logged in"
+      toWhom ["me"] "/msg  me hi" `shouldBe` "user is not logged in"
 
     it "Case 7" $ do
       toWhom ["abc"] " /msg abc note the leading space" `shouldBe` "not a whisper"
