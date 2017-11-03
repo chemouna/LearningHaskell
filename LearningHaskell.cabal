@@ -96,7 +96,7 @@ executable LearningHaskell
                      , MemoTrie >= 0.6.4
                      , strings
                      , split
-
+                     , utility-ht
   -- Directories containing source files.
   hs-source-dirs:      src
   
