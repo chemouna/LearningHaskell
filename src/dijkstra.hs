@@ -9,6 +9,7 @@ buildGraph :: Ord a => [(a, a, Float)] -> Map a [(a, Float)]
 buildGraph g = fromListWith (++) $ g >>=
                  \(a,b,d) -> [(a, [(b, d)]), (b, [(a, d)])]
 
+-- TODO: work on this function more to understand it better 
 dijkstra :: Ord a => a -> Map a [(a, Float)] -> Map a (Float, Maybe a)
 dijkstra source graph =
   f (fromList [(v, (if v == source then 0 else 1/0, Nothing))
