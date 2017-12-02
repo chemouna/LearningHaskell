@@ -26,9 +26,13 @@ match, but
 do not.
 
 "|| ||| | " -> [||, |||, |]
-" | || |||" -> [|, ||, |||]
+"| || |||" -> [|, ||, |||]
 
--> pos mod length 
+-> pos mod length
+
+-> obtain all rotation of a string and then check if our str is in them
+
+-> rotation of a string = rotation of a list 
 
 -}
 
@@ -37,7 +41,21 @@ match_bullet guns bullet f = fromMaybe (-1 :: Int) im
   where
      im = findIndex f guns
 
--- f = (== bullet)
-
 match :: [String] -> String -> Int
-match guns bullet = undefined -- match_bullet ()
+match guns bullet = match_bullet guns bullet (\x -> not $ null (filter (== x) (rotations bullet)))
+
+rotations str = map (\x -> rotate x str) [0..(length str - 1)]
+
+rotate n xs = bs ++ as
+  where (as, bs) = splitAt n xs
+
+
+-- match ["||||", "|| || |", " |||| "] "|| || |" == 1
+
+-- match ["||| |","| | || "] "|||| " == 0
+
+-- match ["|| || ||","| | | | ","||||||||"] "||| ||| " == -1 
+
+-- match [] "| | | |" == -1
+
+-- match ["|| || ||","| | | | ","||| ||| ","||||||||"] "|| ||| |" == 2
