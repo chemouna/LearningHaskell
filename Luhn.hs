@@ -9,9 +9,11 @@ import qualified Data.Map as M
 import Control.Monad
 import Debug.Trace
 
+import Data.Char
+import Data.List.HT
+import Test.QuickCheck
 
--- Luhn algorithm
-
+-- Solution 1: Luhn algorithm
 digits :: Int -> [Int]
 digits = map (read . return) . show
 
