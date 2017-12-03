@@ -97,6 +97,7 @@ executable LearningHaskell
                      , strings
                      , split
                      , utility-ht
+                     , containers
   -- Directories containing source files.
   hs-source-dirs:      src
   
