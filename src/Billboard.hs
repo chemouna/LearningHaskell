@@ -86,12 +86,20 @@ Simple exple :
 
 
 let letters = ["T:#####-..#..-..#..-..#..-..#.." ,"O:#####-#...#-#...#-#...#-#####"]
-Data.List.map tail xs
 let xs = map (splitOn ":") letters
+let ys = Data.List.map tail xs
+let zs = Data.List.map (splitOn "-") (Data.List.intercalate [] ys)
 
-TODO: maybe do splitOns in one op 
+
+TODO: maybe do splitOns in one op
+
 -}
 
+
+f :: [[String]] -> [String]
+f [] = undefined 
+f [x] = x
+f (x:y:xs) = 
 
 enlarge :: String -> [String] -> [String]
 enlarge = undefined
